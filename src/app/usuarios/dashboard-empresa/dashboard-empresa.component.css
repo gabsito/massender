@@ -1,0 +1,44 @@
+*{
+    background-color: azure;
+    font-family: "Fira Sans", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.title{
+    background-color: rgb(3, 20, 20);
+    padding: 15px;
+    padding-left: 35px;
+
+}
+
+
+.title h1{
+    color: azure;
+    background-color: rgb(3, 20, 20);
+}
+
+
+.main{
+    padding: 15px;
+    padding-left: 35px;
+}
+
+.btn{
+    display: flex;
+    justify-content: end;
+    padding-top: 25px;
+    padding-right: 25px;
+}
+
+.btn button{
+    font-size: 18px;
+    font-weight: bold;
+    width: 200px;
+    height: 40px;
+    background-color: rgb(80, 219, 110);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+

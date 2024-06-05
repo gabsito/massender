@@ -1,0 +1,28 @@
+*{
+    background-color: azure;
+    font-family: "Fira Sans", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.title{
+    background-color: rgb(3, 20, 20);
+    padding: 15px;
+    padding-left: 35px;
+
+}
+
+
+.title h1{
+    color: azure;
+    background-color: rgb(3, 20, 20);
+}
+
+.membership{
+    padding: 25px;
+}
+
+.pay-history{
+    padding-left: 25px;
+}

@@ -7,6 +7,7 @@ import { DashboardDestinatariosComponent } from './usuarios/dashboard-destinatar
 import { DashboardEmpresaComponent } from './usuarios/dashboard-empresa/dashboard-empresa.component';
 import { DashboardPagosComponent } from './usuarios/dashboard-pagos/dashboard-pagos.component';
 import { DashboardFiltrosComponent } from './usuarios/dashboard-filtros/dashboard-filtros.component';
+import { HeaderComponent } from './usuarios/header/header.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { DashboardFiltrosComponent } from './usuarios/dashboard-filtros/dashboar
     DashboardDestinatariosComponent,
     DashboardEmpresaComponent,
     DashboardPagosComponent,
-    DashboardFiltrosComponent
+    DashboardFiltrosComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
