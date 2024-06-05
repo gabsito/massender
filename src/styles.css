@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --primary-color: #84c772;
+    --secundary-color: #d7d5d2;
+    --primary-blue: #2a69b3;
+    --black: #1a161d;
+    --white: #fff;
+    --font-size: 16px;
+}
+
+.flex {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.row {
+    flex-direction: row;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}

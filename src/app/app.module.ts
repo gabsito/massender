@@ -7,16 +7,24 @@ import { DashboardDestinatariosComponent } from './usuarios/dashboard-destinatar
 import { DashboardEmpresaComponent } from './usuarios/dashboard-empresa/dashboard-empresa.component';
 import { DashboardPagosComponent } from './usuarios/dashboard-pagos/dashboard-pagos.component';
 import { DashboardFiltrosComponent } from './usuarios/dashboard-filtros/dashboard-filtros.component';
-import { HeaderComponent } from './usuarios/header/header.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { LoginViewComponent } from './login-view/login-view.component';
+import { TestViewsComponent } from './test-views/test-views.component';
+import { HeaderComponent } from './header/header.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
-@NgModule({
+@NgModule({ 
   declarations: [
     AppComponent,
     DashboardDestinatariosComponent,
     DashboardEmpresaComponent,
     DashboardPagosComponent,
     DashboardFiltrosComponent,
-    HeaderComponent
+    SidebarComponent,
+    LoginViewComponent,
+    TestViewsComponent,
+    HeaderComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
