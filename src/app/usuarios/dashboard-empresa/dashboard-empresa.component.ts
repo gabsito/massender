@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Employee } from '../../models/employee';
 
 @Component({
   selector: 'app-dashboard-empresa',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class DashboardEmpresaComponent {
 
-}
+  employees: Employee[] = [new Employee('John Doe'), 
+  new Employee('Jane Smith'),
+  new Employee('Jim Brown')];
+ 
+  }
+
+

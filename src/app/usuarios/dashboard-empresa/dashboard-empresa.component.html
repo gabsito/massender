@@ -8,22 +8,14 @@
     </div>
 
     <div class="btn">
-        <button>Agregar Empleado</button>
+        <button type="submit">Agregar Empleado</button>
     </div>
-
     
-
     <div class="main">
         <div class="company">
-            <h2>empleado</h2>            
-            <h2>empleado</h2>
-            <h2>empleado</h2>
-            <h2>empleado</h2>
-            <h2>empleado</h2>
-            <h2>empleado</h2>
-            <h2>empleado</h2>
-            <h2>empleado</h2>
-            <h2>empleado</h2>
+            <div *ngFor="let employee of employees">
+                {{ employee.name }}
+            </div>
         </div>
 
 
