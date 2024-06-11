@@ -6,6 +6,10 @@
     
 }
 
+.container{
+    min-height: 100dvh;
+}
+
 .title-button{
     display: flex;
     flex-direction: row;
@@ -14,9 +18,7 @@
     background-color: rgb(3, 20, 20);
     padding: 15px;
     padding-left: 35px;
-
 }
-
 
 .title-button h1{
     color: azure;
@@ -37,4 +39,5 @@
     padding-top: 35px;
     padding-left: 35px;
 }
+
 

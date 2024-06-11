@@ -1,5 +1,19 @@
-<aside class="flex column">
-    <button class="sidebar-button">Button 1</button>
-    <button class="sidebar-button">Button 2</button>
-    <button class="sidebar-button">Button 3</button>
+<aside class="flex column sidebar" >
+
+    <div class="logo">
+        <img src="assets/logo.png" alt="Massender">
+    </div>
+
+    <div class="usuario">
+        <h2>Nombre</h2>
+    </div>
+    
+
+    <button class="sidebar-button">Campañas</button>
+    <button class="sidebar-button" routerLink = '/dashboard-destinatarios'>Destinatarios</button>
+    <button class="sidebar-button">Reportes</button>
+    <button class="sidebar-button" routerLink ='/dashboard-empresa'>Empresa</button>
+    <button class="sidebar-button" routerLink = '/dashboard-pagos'>Pagos</button>
+    <button class="sidebar-button" routerLink = '/dashboard-configuracion'>Configuración</button>
+
 </aside>
