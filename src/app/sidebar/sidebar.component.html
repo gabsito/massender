@@ -9,7 +9,12 @@
     </div>
     
 
-    <button class="sidebar-button">Campañas</button>
+    <button class="sidebar-button" (click)="toggleMenu()" [ngClass]="showMenu ? 'selected' : ''">Campañas</button>
+    <div class="menu-pop" [ngClass]="showMenu ? '' : 'hidden'">
+        <button class="sidebar-button">Nueva Campaña</button>
+        <button class="sidebar-button">Campañas Activas</button>
+        <button class="sidebar-button">Campañas Finalizadas</button>
+    </div>
     <button class="sidebar-button" routerLink = '/dashboard-destinatarios'>Destinatarios</button>
     <button class="sidebar-button">Reportes</button>
     <button class="sidebar-button" routerLink ='/dashboard-empresa'>Empresa</button>
