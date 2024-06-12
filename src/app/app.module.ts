@@ -13,8 +13,10 @@ import { TestViewsComponent } from './test-views/test-views.component';
 import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PopupComponent } from './usuarios/popup/popup.component';
+// TODO: Actualizar los popups a la nueva versión de Angular Material
 import { MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
 import { FormsModule } from '@angular/forms';
+// TODO: Actualizar los botones y las tarjetas a la nueva versión de Angular Material
 import {MatLegacyButtonModule as MatButtonModule} from '@angular/material/legacy-button';
 import {MatLegacyCardModule as MatCardModule} from '@angular/material/legacy-card';
 
