@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { Employee } from '../../models/employee';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { PopupComponent } from '../popup/popup.component';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
+import {MatLegacyButtonModule as MatButtonModule} from '@angular/material/legacy-button';
+import {MatLegacyCardModule as MatCardModule} from '@angular/material/legacy-card';
 import { CommonModule } from '@angular/common';
 import { EmployeeService } from 'src/app/services/employee.service';
 
