@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { MatLegacyCardModule as MatCardModule } from '@angular/material/legacy-card';
+// TODO: Actualizar el diálogo a la nueva versión de Angular Material
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-dashboard-pagos',

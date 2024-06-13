@@ -37,7 +37,7 @@
     cursor: pointer;
 }
 
-.mat-card-actions button {
+.mat-mdc-card-actions button {
     color: var(--white);
     background-color: var(--primary-blue);
     margin-right: 10px;
@@ -49,11 +49,11 @@
 }
 
 
-::ng-deep .mat-card,
-.mat-card-header,
-.mat-card-title,
-.mat-card-actions,
-.mat-card-subtitle {
+::ng-deep .mat-mdc-card,
+.mat-mdc-card-header,
+.mat-mdc-card-title,
+.mat-mdc-card-actions,
+.mat-mdc-card-subtitle {
 
     background-color: var(--white);
 }
