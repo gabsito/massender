@@ -3,8 +3,10 @@
     --primary-color: #84c772;
     --secundary-color: #d7d5d2;
     --primary-blue: #2a69b3;
+    --button-selected: #d7d5d2;
     --black: #1a161d;
     --white: #fff;
+    ---gray: #ecebeb;
     --font-size: 16px;
 }
 
@@ -20,7 +22,16 @@
     flex-direction: row;
 }
 
+.mat-mdc-card {
+    margin: 15px;
+}
+
 html, body {
     margin: 0;
     padding: 0;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
