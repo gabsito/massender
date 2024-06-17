@@ -1,0 +1,51 @@
+*{
+    background-color: var(--black);
+}
+
+.sidebar{
+    min-height: 100%;
+}
+
+.logo{
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(0.25turn, rgb(11, 90, 15), rgb(31, 155, 113), rgb(3, 167, 167));
+    border-image-slice: 90;
+    border-image-width: 4px;
+}
+
+.logo img{
+    height: 60px;
+    width: 300px;
+}
+
+.usuario{
+    border-style: solid;
+    border-color: wheat;
+    margin-bottom: 10px;
+}
+
+.usuario h2{
+    color: white;
+}
+
+.sidebar-button{
+    border-color: var(--black);
+    margin: 2px;
+    font-size: 20px;
+    font-weight: bold;
+    height: 50px;
+    color: rgb(255, 255, 255);
+    background-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.selected {
+    background-color: var(--button-selected);
+}

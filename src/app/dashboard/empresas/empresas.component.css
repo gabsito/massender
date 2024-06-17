@@ -1,0 +1,59 @@
+.title {
+    background-color: rgb(3, 20, 20);
+    padding: 15px;
+    padding-left: 35px;
+
+}
+
+
+.title h1 {
+    color: azure;
+    background-color: rgb(3, 20, 20);
+}
+
+
+.main {
+    min-height: 100dvh;
+    padding: 15px;
+    padding-left: 35px;
+}
+
+.btn {
+    display: flex;
+    justify-content: end;
+    padding-top: 25px;
+    padding-right: 25px;
+}
+
+
+.btn button {
+    font-size: 18px;
+    font-weight: bold;
+    width: 200px;
+    height: 40px;
+    background-color: rgb(80, 219, 110);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.mat-mdc-card-actions button {
+    color: var(--white);
+    background-color: var(--primary-blue);
+    margin-right: 10px;
+    font-size: 15px;
+    width: 110px;
+    height: 30px;
+    border-radius: 8px;
+    border-color: var(--primary-blue);
+}
+
+
+::ng-deep .mat-mdc-card,
+.mat-mdc-card-header,
+.mat-mdc-card-title,
+.mat-mdc-card-actions,
+.mat-mdc-card-subtitle {
+
+    background-color: var(--white);
+}

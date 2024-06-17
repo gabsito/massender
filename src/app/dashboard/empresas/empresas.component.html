@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="title">
+        <h1>Empresa</h1>
+    </div>
+    <div class="btn">
+        <button mat-button (click)="openDialog()">Agregar Empleado</button>
+    </div>
+    <div class="main">
+        <div class="company">
+            <!-- TODO: Cambiar ngfor por @for -->
+            <!-- @for (employee of employees; track employee.name) { -->
+                <mat-card appearance="outlined" *ngFor="let employee of employees">
+                    <mat-card-header>
+                      <mat-card-title>{{ employee.name }}</mat-card-title>
+                      <mat-card-subtitle>Campañas asignadas:</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-actions>
+                      <button >Campaña1</button>
+                      <button >Campaña2</button>
+                    </mat-card-actions>
+                </mat-card>
+            <!-- } -->
+        </div>
+    </div>
+</div>
