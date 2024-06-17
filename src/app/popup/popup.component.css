@@ -1,0 +1,45 @@
+::ng-deep .mat-mdc-dialog-container{
+    background-color: var(--secundary-color);
+    border-radius: 15px;
+}
+
+
+h1{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.person-form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.person-form label{
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.person-form input{
+    border-radius: 10px;
+    height: 25px;
+}
+
+
+.mat-mdc-dialog-actions{
+    gap: 20px;
+}
+
+.mat-mdc-dialog-actions button{
+    font-size: 16px;
+    font-weight: 550;
+    color: var(--white);
+    background-color: var(--primary-blue);
+    height: 35px;
+    width: 105px;
+    border-radius: 10px;
+    cursor: pointer;
+    border-color: transparent;
+}
+
