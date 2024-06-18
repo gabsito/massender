@@ -17,7 +17,7 @@ import { EmployeeService } from 'src/app/services/employee.service';
 })
 export class DashboardEmpresaComponent {
   
-  employees: Employee[] = [new Employee('John Doe'), new Employee('Jane Smith'),new Employee('Jim Brown')];
+  //employees: Employee[] = [new Employee('John Doe'), new Employee('Jane Smith'),new Employee('Jim Brown')];
 
   constructor(public dialog:MatDialog){}
 
@@ -33,7 +33,20 @@ export class DashboardEmpresaComponent {
     });
   }
 
-  
+  employees: Employee[] = [];
+  isPopupOpen: boolean = false;
+
+  openPopup() {
+    this.isPopupOpen = true;
+  }
+
+  onEmployeeAdded(employeeName: string) {
+    this.employees.push(new Employee(employeeName));
+    this.isPopupOpen = false;
+  }
+
+
+
   }
 
 

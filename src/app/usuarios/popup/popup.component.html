@@ -2,10 +2,11 @@
 <div mat-dialog-content>
   <form  class="person-form">
     <label for="name">Nombre Completo</label>
-    <input type="text"  placeholder="Nombre Completo" name="name">
+    <input type="text" [(ngModel)]="employeeName" placeholder="Nombre Completo" name="name">
   </form>
 </div>
 <div mat-dialog-actions>
   <button mat-dialog-close>Cerrar</button>
-  <button>Añadir</button>
+  <button (click)="addEmployee()">Añadir</button>
 </div>
+
