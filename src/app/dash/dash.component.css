@@ -1,0 +1,18 @@
+
+
+.main-container {
+    min-height: 100dvh;
+  }
+  
+  
+  .main-container > * {
+    width: 100%;
+  }
+  
+  
+  .main-container > *:first-child {
+      width: 300px;
+      
+  }
+  
+  

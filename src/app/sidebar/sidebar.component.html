@@ -1,7 +1,7 @@
 <aside class="flex column sidebar" >
 
     <div class="logo">
-        <img src="assets/logo.png" alt="Massender">
+        <img src="logo.png" alt="Massender">
     </div>
 
     <div class="usuario">
@@ -9,11 +9,18 @@
     </div>
     
 
-    <button class="sidebar-button">Campañas</button>
-    <button class="sidebar-button" routerLink = '/dashboard-destinatarios'>Destinatarios</button>
-    <button class="sidebar-button">Reportes</button>
-    <button class="sidebar-button" routerLink ='/dashboard-empresa'>Empresa</button>
-    <button class="sidebar-button" routerLink = '/dashboard-pagos'>Pagos</button>
-    <button class="sidebar-button" routerLink = '/dashboard-configuracion'>Configuración</button>
+    <nav class="flex column">
+        <a class="sidebar-button" (click)="toggleMenu()" [class]="showMenu ? 'selected' : ''">Campañas</a>
+        <ul class="menu-pop" [class]="showMenu ? '' : 'hidden'">
+            <a class="sidebar-button">Nueva Campaña</a>
+            <a class="sidebar-button">Campañas Activas</a>
+            <a class="sidebar-button">Campañas Finalizadas</a>
+        </ul>
+        <a class="sidebar-button" routerLink = '/destinatarios'>Destinatarios</a>
+        <a class="sidebar-button">Reportes</a>
+        <a class="sidebar-button" routerLink ='/empresas'>Empresa</a>
+        <a class="sidebar-button" routerLink = '/pagos'>Pagos</a>
+        <a class="sidebar-button" routerLink = '/configuracion'>Configuración</a>
+    </nav>
 
 </aside>

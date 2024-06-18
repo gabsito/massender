@@ -42,4 +42,10 @@
     cursor: pointer;
 }
 
+.hidden {
+    display: none;
+}
 
+.selected {
+    background-color: var(--button-selected);
+}

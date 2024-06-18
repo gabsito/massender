@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Employee } from '../../models/employee';
+// TODO: Actualizar el diálogo a la nueva versión de Angular Material
 import { MatDialog } from '@angular/material/dialog';
 import { PopupComponent } from '../popup/popup.component';
+// TODO: Actualizar los botones y las tarjetas a la nueva versión de Angular Material
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { CommonModule } from '@angular/common';

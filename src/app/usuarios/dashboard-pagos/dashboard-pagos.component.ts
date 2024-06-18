@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+// TODO: Actualizar el diálogo a la nueva versión de Angular Material
 import { MatCardModule } from '@angular/material/card';
 
 @Component({

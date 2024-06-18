@@ -1,12 +1,3 @@
-*{
-    background-color: azure;
-    font-family: "Fira Sans", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    
-}
-
-
 .container{
     min-height: 100dvh;
 }
@@ -32,11 +23,7 @@
     padding-left: 25px;
 }
 
-.mat-card {
-    margin: 15px;
-}
-
-.mat-card .main-title{
+.mat-mdc-card .main-title{
     font-size: 25px;
     font-weight: bold;
     width: 250px;
@@ -47,15 +34,15 @@
     color: var(--white);
 }
 
-.mat-card-title{
+.mat-mdc-card-title{
     color: rgb(56, 33, 189);
 }
 
-::ng-deep .mat-card,
-.mat-card-header,
-.mat-card-title,
-.mat-card-actions,
-.mat-card-subtitle {
+::ng-deep .mat-mdc-card,
+.mat-mdc-card-header,
+.mat-mdc-card-title,
+.mat-mdc-card-actions,
+.mat-mdc-card-subtitle {
 
     background-color: var(--white);
 }
