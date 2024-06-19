@@ -15,6 +15,8 @@
 .title-button h1{
     color: azure;
     background-color: rgb(3, 20, 20);
+    margin: 0;
+    font-size: 40px;
 }
 
 .btn{
@@ -24,6 +26,7 @@
     background-color: rgb(90, 124, 124);
     color: rgb(255, 255, 255);
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .description p{
@@ -31,5 +34,4 @@
     padding-top: 35px;
     padding-left: 35px;
 }
-
 
