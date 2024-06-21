@@ -4,8 +4,11 @@ import {
   MatDialogActions,
   MatDialogClose,
   MatDialogContent,
+  MatDialogRef,
   MatDialogTitle,
 } from '@angular/material/dialog';
+import { Employee } from '../classes/employee';
+import { FormControl, FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-popup',
@@ -15,11 +18,29 @@ import {
     MatDialogActions,
     MatDialogClose,
     MatDialogTitle,
-    MatDialogContent
+    MatDialogContent,
+    FormsModule
   ],
   templateUrl: './popup.component.html',
-  styleUrl: './popup.component.css'
+  styleUrls: ['./popup.component.css']
 })
 export class PopupComponent {
 
+  employeeName: string = '';
+
+  constructor(public dialogRef: MatDialogRef<PopupComponent>) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  formControl = new FormControl('');
+
+  onSubmit() {
+    const employeeName = this.formControl.value;
+    this.dialogRef.close(employeeName);
+  }
+
+
 }
+ 

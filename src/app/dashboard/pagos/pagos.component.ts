@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './pagos.component.html',
-  styleUrl: './pagos.component.css'
+  styleUrls: ['./pagos.component.css']
 })
 export class PagosComponent {
 

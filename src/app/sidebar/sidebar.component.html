@@ -11,11 +11,11 @@
 
     <nav class="flex column">
         <a class="sidebar-button" (click)="toggleMenu()" [class]="showMenu ? 'selected' : ''">Campañas</a>
-        <ul class="menu-pop" [class]="showMenu ? '' : 'hidden'">
-            <a class="sidebar-button">Nueva Campaña</a>
-            <a class="sidebar-button">Campañas Activas</a>
-            <a class="sidebar-button">Campañas Finalizadas</a>
-        </ul>
+        <div class="menu-pop flex column" [class]="showMenu ? '' : 'hidden'">
+            <a class="sub-button">Whatsapp</a>
+            <a class="sub-button">Email</a>
+            <a class="sub-button">SMS</a>
+        </div>
         <a class="sidebar-button" routerLink = '/destinatarios'>Destinatarios</a>
         <a class="sidebar-button">Reportes</a>
         <a class="sidebar-button" routerLink ='/empresas'>Empresa</a>

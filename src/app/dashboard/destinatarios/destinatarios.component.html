@@ -1,16 +1,37 @@
 <div class="container">
-
     <div class="title-button">
         <h1>Destinatarios</h1>
-        <button class="btn">Crear Lista</button>
+        <button class="btn" (click)="openDialog()">Crear Lista</button>
     </div>
 
     <div class="description">
         <p><b>Esta es su base de datos de contactos. Desde aquí, puede ver,
-            organizar y administrar los contactos individualmente o en grupo.</b>
+                organizar y administrar los contactos individualmente o en grupo.</b>
         </p>
     </div>
 
-
-
+    <div class="table">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef> Nombre de la Lista </th>
+              <td mat-cell *matCellDef="let list"> {{list.nombre}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="fechaCreacion">
+              <th mat-header-cell *matHeaderCellDef> Fecha de Creación </th>
+              <td mat-cell *matCellDef="let list"> {{list.fechaCreacion | date}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef> Acciones </th>
+              <td mat-cell *matCellDef="let list" >
+                <button mat-button routerLink = '/destinatarios/{{list.nombre}}/importar'>Importar Contactos</button>
+                <button mat-button (click)="deleteList(list)">Eliminar</button>
+              </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+    </div>
 </div>
