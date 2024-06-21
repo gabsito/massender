@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "massenderV2": {
+    "massender": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/massender-v2",
+            "outputPath": "dist/massender",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "massenderV2:build:production"
+              "buildTarget": "massender:build:production"
             },
             "development": {
-              "buildTarget": "massenderV2:build:development"
+              "buildTarget": "massender:build:development"
             }
           },
           "defaultConfiguration": "development"
