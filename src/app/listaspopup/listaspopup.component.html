@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Crear Lista de contactos</h1>
+<div mat-dialog-content>
+  <form  class="list-form">
+    <label for="name">Nombre de la lista</label>
+    <input type="text" id="listname"  placeholder="Nombre de la lista"  name="name" matInput [(ngModel)]="listName" required>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button (click)="onNoClick()">Cerrar</button>
+  <button mat-button (click)="onSubmit()">Añadir</button>
+</div>
+
+
