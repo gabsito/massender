@@ -4,7 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDialog } from '@angular/material/dialog';
 import { PopupComponent } from '../../popup/popup.component';
 import { MatIconModule } from '@angular/material/icon';
-import { Employee } from '../../models/employee';
+import { Employee } from '../../classes/employee';
 
 @Component({
   selector: 'app-empresas',
