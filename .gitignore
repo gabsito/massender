@@ -20,6 +20,9 @@ yarn-error.log
 .settings/
 *.sublime-workspace
 
+# Lint
+eslint.config.mjs
+
 # Visual Studio Code
 .vscode/*
 !.vscode/settings.json

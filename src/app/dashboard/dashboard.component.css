@@ -1,0 +1,11 @@
+.main-container {
+  min-height: 100dvh;
+}
+
+.main-container > * {
+  border: 1px solid #000;
+}
+
+.main-container > *:first-child {
+    width: 300px;
+}
