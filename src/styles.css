@@ -74,6 +74,12 @@ button:hover {
     background-color: var(--primary-color);
 }
 
+input[type="submit"]:disabled,
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
 .card {
     background-color: var(--white);
     border-radius: var(--card-border-radius);

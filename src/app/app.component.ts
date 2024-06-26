@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { DashComponent } from './dash/dash.component';
 import { RouterOutlet } from '@angular/router';  
 import { MatInputModule } from '@angular/material/input';
-import { FormsModule } from '@angular/forms'; // Asegúrate de importar FormsModule
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Asegúrate de importar FormsModule
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -17,11 +17,12 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     FormsModule,
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    ReactiveFormsModule
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'massender';
+  title = 'Massender';
 }

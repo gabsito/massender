@@ -1,22 +1,23 @@
 import { Component } from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatDialog } from '@angular/material/dialog';
 import { PopupComponent } from '../../popup/popup.component';
-import { Employee } from '../../models/employee';
+import { MatIconModule } from '@angular/material/icon';
+import { Employee } from '../../classes/employee';
 
 @Component({
   selector: 'app-empresas',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, PopupComponent, FormsModule, MatIconModule],
+  imports: [MatCardModule, MatButtonModule, PopupComponent, MatIconModule],
   templateUrl: './empresas.component.html',
   styleUrls: ['./empresas.component.css']
 })
 export class EmpresasComponent {
 
 
-  employees: Employee[] = [new Employee('John Doe'), new Employee('Jane Smith'),new Employee('Jim Brown')];
-
+  employees: Employee[] = [new Employee('John Doe', 0), new Employee('Jane Smith', 1),new Employee('Jim Brown', 2)];
+  idEmployee: number = 3;
 
 
   constructor(public dialog:MatDialog){}

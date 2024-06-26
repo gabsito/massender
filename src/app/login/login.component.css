@@ -1,0 +1,38 @@
+.input-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+
+.input-group > label {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.card-center {
+    margin: auto auto;
+    width: 300px;
+}
+
+.full-vp {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    background-color: var(---gray);
+}
+
+.card > img {
+    width: 100%;
+    height: auto;
+    -webkit-filter: drop-shadow(1px 1px 0 black) 
+                    drop-shadow(-1px -1px 0 white);
+    filter:drop-shadow(1px 1px 0 black) 
+           drop-shadow(-1px -1px 0 white);
+}
+
+ul.errors > li {
+    color: red;
+    font-size: .75rem;
+    font-weight: 300;
+}

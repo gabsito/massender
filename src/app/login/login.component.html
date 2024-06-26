@@ -1,1 +1,31 @@
-<p>login works!</p>
+<div class="full-vp">
+    <div class="card card-center">
+        <img src="logo.png" alt="massender">
+        <form [formGroup]='loginForm' (ngSubmit)="onSubmit()">
+            <div class="input-group">
+                <label for="username">Usuario</label>
+                <input type="text" id="username" formControlName="username">
+            </div>
+            <div class="input-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" formControlName="password">
+            </div>
+            <ul class="errors">
+                @if (loginForm.get('username')?.hasError('required') && loginForm.get('username')?.touched) {
+                    <li>Escriba el usuario</li>
+                }
+                @if (loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched) {
+                    <li>Escriba la contraseña</li>
+                }
+                @if (errorMessage) {
+                    <li>{{ errorMessage }}</li>
+                }
+            </ul>
+            @if (loading) {
+                <button type="submit" disabled><mat-spinner diameter="20"></mat-spinner></button>
+            } @else {
+                <button type="submit" >Ingresar</button>
+            }
+        </form>
+    </div>
+</div>
