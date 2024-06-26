@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { AuthService } from '../core/auth.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -12,8 +13,14 @@ export class SidebarComponent {
 
   showMenu: boolean = false;
 
+  constructor(private authService: AuthService) { }
+
   toggleMenu() {
     this.showMenu = !this.showMenu;
+  }
+
+  logout() {
+    this.authService.logout();
   }
 
 }
