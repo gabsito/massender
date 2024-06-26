@@ -30,3 +30,9 @@
     filter:drop-shadow(1px 1px 0 black) 
            drop-shadow(-1px -1px 0 white);
 }
+
+ul.errors > li {
+    color: red;
+    font-size: .75rem;
+    font-weight: 300;
+}

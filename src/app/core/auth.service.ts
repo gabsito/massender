@@ -1,14 +1,29 @@
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor() { }
+  tokenURL = '/api/massender/token'
 
-  getAuthToken(): Observable<boolean>{
-    return of(true);
+  constructor(private http: HttpClient) { }
+
+  getAuthToken(username: string, password: string): Observable<Object>{
+    const body = new HttpParams().set('username', username).set('password', password);
+    let response = this.http.post(this.tokenURL, body.toString(), {
+      headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('Access-Control-Allow-Origin', '*')
+    });
+
+    console.log(response);
+
+    return response;
   }
+
+  saveToken(token: string){
+    localStorage.setItem('token', token);
+  }
+
 }

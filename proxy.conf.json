@@ -1,0 +1,11 @@
+{
+    "/api": {
+      "target": "https://jandryrt15.pythonanywhere.com",
+      "secure": false,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": ""
+      }
+    }
+  }
+  
