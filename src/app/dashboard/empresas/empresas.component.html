@@ -8,8 +8,8 @@
     <div class="main">
         <div class="company">
             <!-- TODO: Cambiar ngfor por @for -->
-            <!-- @for (employee of employees; track employee.name) { -->
-                <mat-card appearance="outlined" *ngFor="let employee of employees">
+            @for (employee of employees; track employee.name) {
+                <mat-card appearance="outlined">
                     <mat-card-header>
                       <mat-card-title>{{ employee.name }}</mat-card-title>
                       <mat-card-subtitle>Campañas asignadas:</mat-card-subtitle>
@@ -19,7 +19,7 @@
                       <button >Campaña2</button>
                     </mat-card-actions>
                 </mat-card>
-            <!-- } -->
+            }
         </div>
     </div>
 </div>

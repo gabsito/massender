@@ -3,6 +3,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { MatDialog } from '@angular/material/dialog';
 import { PopupComponent } from '../../popup/popup.component';
+import { Employee } from '../../models/employee';
 
 @Component({
   selector: 'app-empresas',
@@ -13,7 +14,7 @@ import { PopupComponent } from '../../popup/popup.component';
 })
 export class EmpresasComponent {
 
-  // employees: Employee[] = [new Employee('John Doe'), new Employee('Jane Smith'),new Employee('Jim Brown')];
+  employees: Employee[] = [new Employee('John Doe'), new Employee('Jane Smith'),new Employee('Jim Brown')];
 
   
   constructor(public dialog:MatDialog){}
