@@ -7,19 +7,26 @@
     </div>
     <div class="main">
         <div class="company">
-            <!-- TODO: Cambiar ngfor por @for -->
             @for (employee of employees; track employee.name) {
-                <mat-card appearance="outlined">
-                    <mat-card-header>
-                      <mat-card-title>{{ employee.name }}</mat-card-title>
-                      <mat-card-subtitle>Campañas asignadas:</mat-card-subtitle>
-                    </mat-card-header>
-                    <mat-card-actions>
-                      <button >Campaña1</button>
-                      <button >Campaña2</button>
-                    </mat-card-actions>
-                </mat-card>
+            <mat-card appearance="outlined">
+                <mat-card-header>
+                    <div class="header-content">
+                        <div>
+                            <mat-card-title>{{ employee.name }}</mat-card-title>
+                            <mat-card-subtitle>Campañas asignadas:</mat-card-subtitle>
+                        </div>
+                        <button mat-icon-button class="delete-button" (click)="deleteEmployee(employee.id)">
+                            <mat-icon>delete</mat-icon></button>
+                    </div>
+                </mat-card-header>
+                <mat-card-actions>
+                    <button>Campaña1</button>
+                    <button>Campaña2</button>
+                </mat-card-actions>
+            </mat-card>
+            } @empty {
+            <p>Ningún empleado ha sido registrado</p>
             }
         </div>
     </div>
-</div>
+</div> 

@@ -31,15 +31,32 @@
     color: white;
 }
 
-.sidebar-button{
+ .sidebar-button, .sub-button{
     border-color: var(--black);
     margin: 2px;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
     height: 50px;
     color: rgb(255, 255, 255);
     background-color: var(--primary-color);
     cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.menu-pop{
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 9px;
+}
+
+.sub-button{
+    height: 45px;
+    width: 280px;
+    border-radius: 10px;
+    font-weight: normal;
+    cursor: pointer;
+    text-align: center;
 }
 
 .hidden {

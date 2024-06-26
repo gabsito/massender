@@ -2,15 +2,14 @@
     background-color: rgb(3, 20, 20);
     padding: 15px;
     padding-left: 35px;
-
 }
-
 
 .title h1 {
     color: azure;
     background-color: rgb(3, 20, 20);
+    margin: 0;
+    font-size: 40px;
 }
-
 
 .main {
     min-height: 100dvh;
@@ -24,7 +23,6 @@
     padding-top: 25px;
     padding-right: 25px;
 }
-
 
 .btn button {
     font-size: 18px;
@@ -48,12 +46,10 @@
     border-color: var(--primary-blue);
 }
 
-
-::ng-deep .mat-mdc-card,
-.mat-mdc-card-header,
-.mat-mdc-card-title,
-.mat-mdc-card-actions,
-.mat-mdc-card-subtitle {
-
-    background-color: var(--white);
-}
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  

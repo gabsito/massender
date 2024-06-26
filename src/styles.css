@@ -32,10 +32,10 @@
 html, body {
     margin: 0;
     padding: 0;
+    background-color: var(---gray);
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
 
 input[type="text"],
 input[type="password"],
@@ -79,4 +79,16 @@ button:hover {
     border-radius: var(--card-border-radius);
     box-shadow: var(--card-shadow);
     padding: 20px;
+}
+
+.delete-button {
+    margin-left: auto;
+  }
+
+  ::ng-deep .mat-mdc-card,
+.mat-mdc-card-header,
+.mat-mdc-card-title,
+.mat-mdc-card-actions,
+.mat-mdc-card-subtitle {
+    background-color: var(--white);
 }

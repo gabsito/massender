@@ -6,7 +6,7 @@ import { RouterOutlet } from '@angular/router';
     selector: 'app-dash',
     standalone: true,
     templateUrl: './dash.component.html',
-    styleUrl: './dash.component.css',
+    styleUrls: ['./dash.component.css'],
     imports: [
       SidebarComponent,
       RouterOutlet

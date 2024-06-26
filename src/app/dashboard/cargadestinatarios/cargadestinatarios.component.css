@@ -35,3 +35,21 @@
     padding-left: 35px;
 }
 
+.mat-mdc-card-actions button {
+    color: var(--white);
+    background-color: var(--primary-blue);
+    margin-right: 10px;
+    font-size: 15px;
+    width: 110px;
+    height: 30px;
+    border-radius: 8px;
+    border-color: var(--primary-blue);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
