@@ -2,6 +2,8 @@ import { Routes } from '@angular/router';
 import { EmpresasComponent } from './dashboard/empresas/empresas.component';
 import { DestinatariosComponent } from './dashboard/destinatarios/destinatarios.component';
 import { PagosComponent } from './dashboard/pagos/pagos.component';
+import { LoginComponent } from './login/login.component';
+import { DashComponent } from './dash/dash.component';
 import { CargadestinatariosComponent } from './dashboard/cargadestinatarios/cargadestinatarios.component';
 import { LoginComponent } from './login/login.component';
 import { DashComponent } from './dash/dash.component';
