@@ -7,7 +7,7 @@ import {
   MatDialogRef,
   MatDialogTitle,
 } from '@angular/material/dialog';
-import { FormControl, FormsModule} from '@angular/forms';
+import { FormsModule} from '@angular/forms';
 import { ListasDest } from '../classes/listas-dest';
 
 @Component({

@@ -10,13 +10,16 @@
     
 
     <nav class="flex column">
-        <a class="sidebar-button" (click)="toggleMenu()" [class]="showMenu ? 'selected' : ''">Campañas</a>
-        <div class="menu-pop flex column" [class]="showMenu ? '' : 'hidden'">
+        <a class="sidebar-button" (click)="toggleMenu('Campañas')" [class]="showCampanasMenu ? 'selected' : ''">Campañas</a>
+        <div class="menu-pop flex column" [class]="showCampanasMenu ? '' : 'hidden'">
             <a class="sub-button">Whatsapp</a>
             <a class="sub-button">Email</a>
             <a class="sub-button">SMS</a>
         </div>
-        <a class="sidebar-button" routerLink = '/destinatarios'>Destinatarios</a>
+        <a class="sidebar-button" (click)="toggleMenu('Destinatarios')" [class]="showDestMenu ? 'selected' : ''" routerLink = '/destinatarios'>Destinatarios</a>
+        <div class="menu-pop flex column" [class]="showDestMenu ? '' : 'hidden'">
+            <a class="sub-button" routerLink = '/destinatarios/filtros'>Filtros</a>
+        </div>
         <a class="sidebar-button">Reportes</a>
         <a class="sidebar-button" routerLink ='/empresas'>Empresa</a>
         <a class="sidebar-button" routerLink = '/pagos'>Pagos</a>

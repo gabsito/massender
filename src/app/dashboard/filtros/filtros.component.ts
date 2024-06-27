@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-filtros',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './filtros.component.html',
   styleUrls: ['./filtros.component.css']
 })
