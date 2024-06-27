@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import {
   MatDialogActions,
@@ -7,8 +7,8 @@ import {
   MatDialogRef,
   MatDialogTitle,
 } from '@angular/material/dialog';
-import { Employee } from '../classes/employee';
-import { FormControl, FormsModule } from '@angular/forms';
+import { FormControl, FormsModule} from '@angular/forms';
+
 
 @Component({
   selector: 'app-popup',
@@ -22,7 +22,7 @@ import { FormControl, FormsModule } from '@angular/forms';
     FormsModule
   ],
   templateUrl: './popup.component.html',
-  styleUrls: ['./popup.component.css']
+  styleUrl: './popup.component.css'
 })
 export class PopupComponent {
 
@@ -33,7 +33,7 @@ export class PopupComponent {
   onNoClick(): void {
     this.dialogRef.close();
   }
-
+  
   formControl = new FormControl('');
 
   onSubmit() {
@@ -43,4 +43,3 @@ export class PopupComponent {
 
 
 }
- 

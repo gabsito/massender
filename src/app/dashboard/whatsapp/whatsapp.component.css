@@ -1,0 +1,99 @@
+.container{
+    min-height: 100dvh;
+}
+
+.title{
+    background-color: rgb(3, 20, 20);
+    padding: 15px;
+    padding-left: 35px;
+
+}
+
+.title h1{
+    color: azure;
+    background-color: rgb(3, 20, 20);
+    margin: 0;
+    font-size: 40px;
+}
+
+h4 {
+    font-size: 28px;
+}
+
+.campana-team-enviar, .lista-filtro{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.team-enviar{
+    display: flex;
+    flex-direction: column;
+}
+
+.campana, .team, .enviar, .lista, .filtro{
+    padding: 20px;
+    background-color: var(--white);
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.campana {
+    width: 50%;
+    margin-left: 35px;
+}
+
+.team{
+    max-width: 100%;
+}
+
+.enviar{
+    max-width: 100%;
+}
+
+.lista{
+    width: 50%;
+    margin-left: 35px;
+}
+
+.filtro{
+    max-width: 250%;
+}
+
+.team-items{
+    gap: 15px;
+}
+
+.team-items button{
+    background-color: var(--primary-color);
+    height: 50px;
+    font-size: 20px;
+    color: var(--white);
+    border-radius: 10px;
+    width: 300px;
+    border-style: none;
+    cursor: pointer;
+}
+
+.ahora  {
+    background-color: var(--primary-color);
+    height: 50px;
+    font-size: 20px;
+    color: var(--white);
+    border-radius: 10px;
+    width: 300px;
+    border-style: none;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.programado{
+    background-color: var(--black);
+    height: 50px;
+    font-size: 20px;
+    color: var(--white);
+    border-radius: 10px;
+    width: 300px;
+    border-style: none;
+    cursor: pointer;
+}
