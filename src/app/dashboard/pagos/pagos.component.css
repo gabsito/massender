@@ -1,0 +1,54 @@
+.container{
+    min-height: 100dvh;
+}
+
+.title{
+    background-color: rgb(3, 20, 20);
+    padding: 15px;
+    padding-left: 35px;
+
+}
+
+
+.title h1{
+    color: azure;
+    background-color: rgb(3, 20, 20);
+    margin: 0;
+    font-size: 40px;
+}
+
+.membership{
+    padding: 25px;
+}
+
+.pay-history{
+    padding-left: 25px;
+}
+
+.mat-card {
+    margin: 15px;
+}
+
+.mat-card .main-title{
+    font-size: 25px;
+    font-weight: bold;
+    width: 250px;
+    height: 30px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgb(56, 33, 189);
+    color: var(--white);
+}
+
+.mat-card-title{
+    color: rgb(56, 33, 189);
+}
+
+::ng-deep .mat-card,
+.mat-card-header,
+.mat-card-title,
+.mat-card-actions,
+.mat-card-subtitle {
+
+    background-color: var(--white);
+}

@@ -1,0 +1,30 @@
+.container{
+    min-height: 100dvh;
+}
+
+.title{
+    background-color: rgb(3, 20, 20);
+    padding: 15px;
+    padding-left: 35px;
+
+}
+
+.title h1{
+    color: azure;
+    background-color: rgb(3, 20, 20);
+    margin: 0;
+    font-size: 40px;
+}
+
+.campanas{
+    margin-top: 35px;
+    padding: 25px;
+    background-color: var(--white);
+    max-width: 650px; /* Ancho máximo del contenedor */
+    margin-left: 35px;
+    border-radius: 10px;
+}
+
+.campanas p{
+    font-size: 30px; 
+}

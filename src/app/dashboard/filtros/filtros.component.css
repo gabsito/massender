@@ -1,0 +1,51 @@
+.container{
+    min-height: 100dvh;
+}
+
+.title{
+    background-color: rgb(3, 20, 20);
+    padding: 15px;
+    padding-left: 35px;
+
+}
+
+
+.title h1{
+    color: azure;
+    background-color: rgb(3, 20, 20);
+    margin: 0;
+    font-size: 40px;
+}
+
+.description{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 20px;
+    padding-top: 35px;
+    padding-left: 35px;
+}
+
+.description button{
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 15px;
+    width: 145px;
+    height: 40px;
+    background-color: rgb(80, 219, 110);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.filtros{
+    padding: 25px;
+    background-color: var(--white);
+    max-width: 650px; /* Ancho máximo del contenedor */
+    margin-left: 35px;
+    border-radius: 10px;
+}
+
+.filtros p{
+    font-size: 30px; 
+}
