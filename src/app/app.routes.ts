@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { DashComponent } from './dash/dash.component';
 import { CargadestinatariosComponent } from './dashboard/cargadestinatarios/cargadestinatarios.component';
 import { authGuard } from './guards/auth.guard';
+import { CampaniasComponent } from './dashboard/campanias/campanias.component'; // Importa el componente de campanias
 
 export const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
@@ -15,6 +16,7 @@ export const routes: Routes = [
       { path: 'destinatarios', component: DestinatariosComponent }, //all users
       { path: 'destinatarios/:id/importar', component: CargadestinatariosComponent}, //superadmin + admin
       { path: 'pagos', component: PagosComponent },
+      { path: 'campanias', component: CampaniasComponent }, // Agrega la ruta para el componente de campanias
     ]
   },
   { path: 'login', component: LoginComponent }, //all users

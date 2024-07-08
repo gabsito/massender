@@ -1,0 +1,30 @@
+<div mat-dialog-content class="form-container">
+  <div class="title-button">
+    <h1>Crear Lista de Contactos</h1>
+  </div>
+  <form [formGroup]="createListForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nombreLista">Nombre de la Lista</label>
+      <input id="nombreLista" formControlName="nombreLista" required>
+    </div>
+    <div class="upload">
+      <mat-card appearance="outlined">
+        <mat-card-header>
+          <div class="header-content">
+            <div>
+              <mat-card-title>Cargar Archivo .csv (Opcional)</mat-card-title>
+              <mat-card-subtitle>Importa tus contactos desde un archivo .csv</mat-card-subtitle>
+            </div>
+          </div>
+        </mat-card-header>
+        <mat-card-actions>
+          <input type="file" (change)="onFileChange($event)" accept=".csv">
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div class="form-actions">
+      <button mat-button type="submit" color="primary">Añadir</button>
+      <button mat-button type="button" color="warn" (click)="onCancel()">Cancelar</button>
+    </div>
+  </form>
+</div>
