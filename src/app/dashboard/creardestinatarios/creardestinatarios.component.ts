@@ -1,3 +1,5 @@
+// creardestinatarios.component.ts
+
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogRef, MatDialogModule } from '@angular/material/dialog';
@@ -5,6 +7,21 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+
+interface Destinatario {
+  cedula: string;
+  nombre: string;
+  apellido: string;
+  genero: string;
+  correo: string;
+  telefono: string;
+}
+
+interface Lista {
+  nombreLista: string;
+  fechaCreacion: Date;
+  destinatarios: Destinatario[];
+}
 
 @Component({
   selector: 'app-creardestinatarios',
@@ -22,7 +39,7 @@ import { CommonModule } from '@angular/common';
 export class CreardestinatariosComponent {
   createListForm: FormGroup;
   selectedFile: File | null = null;
-  validHeaders = ['Cédula', 'Nombre', 'Apellido', 'Género', 'Correo', 'Teléfono'];
+  validHeaders = ['Cedula', 'Nombre', 'Apellido', 'Genero', 'Correo', 'Telefono'];
 
   constructor(
     private fb: FormBuilder,
@@ -78,23 +95,21 @@ export class CreardestinatariosComponent {
       reader.onload = (e: any) => {
         const text = e.target.result;
         const lines = text.split('\n');
-        const formattedData = lines.slice(1).map((line: string) => {
+        const formattedData: Destinatario[] = lines.slice(1).map((line: string) => {
           const [cedula, nombre, apellido, genero, correo, telefono] = line.replace('\r', '').split(';');
-          return { cedula, nombre, apellido, genero, correo, telefono };
-        });
+          return { cedula, nombre, apellido, genero, correo, telefono } as Destinatario;
+        }).filter((destinatario: Destinatario) => destinatario.cedula && destinatario.nombre && destinatario.apellido && destinatario.genero && destinatario.correo && destinatario.telefono);
 
-        // Enviar los datos como JSON
-        const data = {
+        const data: Lista = {
           nombreLista: this.createListForm.get('nombreLista')?.value,
+          fechaCreacion: new Date(),
           destinatarios: formattedData
         };
-
-        console.log(data)
 
         this.http.post('http://localhost:8000/massender/guardar-destinatarios', data).subscribe(
           response => {
             console.log('Respuesta del servidor:', response);
-            this.dialogRef.close(true);
+            this.dialogRef.close(data); // Devolver la lista creada completa
           },
           error => {
             console.error('Error al enviar los datos:', error);
@@ -104,15 +119,16 @@ export class CreardestinatariosComponent {
       };
       reader.readAsText(this.selectedFile, 'latin1');
     } else {
-      const data = {
+      const data: Lista = {
         nombreLista: this.createListForm.get('nombreLista')?.value,
+        fechaCreacion: new Date(),
         destinatarios: []
       };
 
-      this.http.post('https://api.ejemplo.com/guardar-destinatarios', data).subscribe(
+      this.http.post('http://localhost:8000/massender/guardar-destinatarios', data).subscribe(
         response => {
           console.log('Respuesta del servidor:', response);
-          this.dialogRef.close(true);
+          this.dialogRef.close(data); // Devolver la lista creada completa
         },
         error => {
           console.error('Error al enviar los datos:', error);

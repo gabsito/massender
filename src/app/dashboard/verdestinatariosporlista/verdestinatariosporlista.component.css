@@ -1,0 +1,18 @@
+.mat-dialog-container {
+  width: 90vw !important; /* Ajustar el valor según tus necesidades */
+  max-width: none;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 1000px; /* Ajustar según tus necesidades */
+}
+
+th.mat-header-cell, td.mat-cell {
+  padding: 8px;
+}

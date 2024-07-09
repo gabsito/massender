@@ -1,0 +1,82 @@
+.container {
+  min-height: 100dvh;
+}
+
+.title-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(3, 20, 20);
+  padding: 15px;
+  padding-left: 35px;
+}
+
+.title-button h1 {
+  color: azure;
+  background-color: rgb(3, 20, 20);
+  margin: 0;
+  font-size: 40px;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.button-group button {
+  background-color: #587d7d; /* Color de fondo del botón */
+  color: #ffffff; /* Color del texto */
+  border-radius: 10px; /* Bordes redondeados */
+  font-size: 17px; /* Tamaño de la fuente */
+  padding: 10px 20px; /* Padding para agregar espacio alrededor del texto */
+  cursor: pointer; /* Cursor al pasar sobre el botón */
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+}
+
+.campaign-creation {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px; /* Asegura que el contenido no se expanda demasiado */
+  padding: 20px; /* Agregar espacio alrededor del contenido */
+}
+
+.section {
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.half-section {
+  grid-column: span 1; /* Hace que ocupe la mitad del ancho */
+}
+
+.full-width {
+  width: 100%;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.mat-form-field .mat-label {
+  font-weight: bold;
+}
+
+button.mat-raised-button {
+  font-size: 1em;
+}
+
+.mat-raised-button.programar-envio,
+.mat-raised-button.enviar-ahora {
+  background-color: #587d7d;
+  color: white;
+  border-radius: 10px;
+  font-size: 17px;
+  padding: 10px 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}

@@ -1,0 +1,34 @@
+<h1 mat-dialog-title>Destinatarios de {{ listaNombre }}</h1>
+<div mat-dialog-content class="table-container">
+  <table mat-table [dataSource]="destinatarios" class="mat-elevation-z8">
+    <ng-container matColumnDef="cedula">
+      <th mat-header-cell *matHeaderCellDef> Cedula </th>
+      <td mat-cell *matCellDef="let destinatario"> {{ destinatario.cedula }} </td>
+    </ng-container>
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let destinatario"> {{ destinatario.nombre }} </td>
+    </ng-container>
+    <ng-container matColumnDef="apellido">
+      <th mat-header-cell *matHeaderCellDef> Apellido </th>
+      <td mat-cell *matCellDef="let destinatario"> {{ destinatario.apellido }} </td>
+    </ng-container>
+    <ng-container matColumnDef="genero">
+      <th mat-header-cell *matHeaderCellDef> Genero </th>
+      <td mat-cell *matCellDef="let destinatario"> {{ destinatario.genero }} </td>
+    </ng-container>
+    <ng-container matColumnDef="correo">
+      <th mat-header-cell *matHeaderCellDef> Correo </th>
+      <td mat-cell *matCellDef="let destinatario"> {{ destinatario.correo }} </td>
+    </ng-container>
+    <ng-container matColumnDef="telefono">
+      <th mat-header-cell *matHeaderCellDef> Telefono </th>
+      <td mat-cell *matCellDef="let destinatario"> {{ destinatario.telefono }} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="close()">Cerrar</button>
+</div>

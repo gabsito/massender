@@ -28,6 +28,7 @@ export class SidebarComponent {
   navigateTo(submenu: string) {
     // Aquí podrías manejar la navegación a diferentes subcomponentes si los tienes
     console.log(`Navigate to ${submenu}`);
+    this.router.navigate(['/dashboard/creaciondecampania']);
     // Implementar la lógica de navegación según tus necesidades
   }
 

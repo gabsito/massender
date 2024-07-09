@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="title-button">
+    <h1>CAMPAÑA POR WHATSAPP</h1>
+    <div class="button-group">
+      <button mat-raised-button class="programar-envio">Programar Envio</button>
+      <button mat-raised-button class="enviar-ahora">Enviar Ahora</button>
+    </div>
+  </div>
+
+  <div class="campaign-creation">
+    <div class="section">
+      <h2>Creacion de Campania</h2>
+      <form [formGroup]="campaignForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Nombre de la Campania</mat-label>
+          <input matInput formControlName="nombreCampania">
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Mensaje</mat-label>
+          <textarea matInput formControlName="mensaje"></textarea>
+        </mat-form-field>
+      </form>
+    </div>
+    <div class="section half-section">
+      <h2>Aplicar Filtro de Destinatarios</h2>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Selecciona un Filtro</mat-label>
+        <mat-select formControlName="filtro">
+          <mat-option value="ninguno">Ninguno</mat-option>
+          <!-- Agrega más opciones aquí -->
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="section">
+      <h2>Selecciona Lista de Contactos</h2>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Selecciona una lista de destinatarios</mat-label>
+        <mat-select formControlName="listaDestinatarios">
+          <mat-option value="ninguno">Ninguno</mat-option>
+          <!-- Agrega más opciones aquí -->
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</div>
