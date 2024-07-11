@@ -5,6 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-creaciondecampania',
@@ -15,33 +16,86 @@ import { CommonModule } from '@angular/common';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
   ],
   templateUrl: './creaciondecampania.component.html',
   styleUrls: ['./creaciondecampania.component.css']
 })
 export class CreacionDeCampaniaComponent implements OnInit, AfterViewInit {
   campaignForm: FormGroup;
+  filtros: { id: number, name: string, value: string }[] = [];
+  listas: { id: number, nombre: string }[] = [];
 
-  constructor(private fb: FormBuilder, private cdr: ChangeDetectorRef) {
+  constructor(private fb: FormBuilder, private cdr: ChangeDetectorRef, private http: HttpClient) {
     this.campaignForm = this.fb.group({
       nombreCampania: ['', Validators.required],
       mensaje: ['', Validators.required],
-      filtro: [''],
-      listaDestinatarios: ['']
+      filtro: ['', Validators.required],
+      listaDestinatarios: ['', Validators.required]
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.loadFiltros();
+    this.loadListas();
+  }
 
   ngAfterViewInit() {
-    // Forzamos la detección de cambios después de que el componente se haya inicializado
     this.cdr.detectChanges();
   }
 
-  onSubmit() {
+  loadFiltros() {
+    this.http.get<{ id: number, name: string, value: string }[]>('http://localhost:8000/listar-filtros')
+      .subscribe(
+        data => {
+          this.filtros = data;
+        },
+        error => {
+          console.error('Error loading filtros', error);
+        }
+      );
+  }
+
+  loadListas() {
+    this.http.get<{ id: number, nombre: string }[]>('http://localhost:8000/listar-destinatarios')
+      .subscribe(
+        data => {
+          this.listas = data.map(lista => ({ id: lista.id, nombre: lista.nombre }));
+        },
+        error => {
+          console.error('Error loading listas', error);
+        }
+      );
+  }
+
+  programarEnvio() {
     if (this.campaignForm.valid) {
-      console.log(this.campaignForm.value);
+      // Lógica para programar el envío
+      console.log('Programar Envio');
+    }
+  }
+
+  enviarAhora() {
+    if (this.campaignForm.valid) {
+      const formData = this.campaignForm.value;
+      const campaniaData = {
+        nombre: formData.nombreCampania,
+        mensaje: formData.mensaje,
+        filtro_id: formData.filtro,
+        lista_id: formData.listaDestinatarios
+      };
+
+      this.http.post('http://localhost:8000/guardar-campania', campaniaData)
+        .subscribe(
+          response => {
+            console.log('Campaña guardada con éxito', response);
+            this.campaignForm.reset();  // Limpiar el formulario
+          },
+          error => {
+            console.error('Error al guardar la campaña', error);
+          }
+        );
     }
   }
 }

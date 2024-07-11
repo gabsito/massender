@@ -17,7 +17,9 @@ export class CampaniasComponent implements OnInit {
   constructor(private campaniasService: CampaniasService) { }
 
   ngOnInit(): void {
-    this.campanias = this.campaniasService.getCampanias();
+    this.campaniasService.getCampanias().subscribe((data: any[]) => {
+      this.campanias = data;
+    });
   }
 
   get paginatedCampanias(): any[] {

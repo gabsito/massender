@@ -1,21 +1,32 @@
-<div class="title">
-  <h1>Campañas</h1>
-</div>
-
-<div class="main">
-  <div class="header-content">
-    <span>Registros: {{ campanias.length }}</span>
+<div class="container">
+  <div class="title-button">
+    <h1>Campañas</h1>
   </div>
-  <div class="campanias-list">
-    <div *ngFor="let campania of paginatedCampanias" class="campania-item">
-      <span class="campania-name">{{ campania.nombre }}</span>
-      <span class="campania-type">{{ campania.tipo }}</span>
-      <span class="campania-status">{{ campania.estado }}</span>
+  <div class="description">
+    <p><b>Información sobre las campañas creadas.</b></p>
+  </div>
+  <div class="main">
+    <div class="header-content">
+      <span>Registros: {{ campanias.length }}</span>
     </div>
-  </div>
-  <div class="pagination-controls">
-    <button (click)="previousPage()">&lt;</button>
-    <span>{{ currentPage }}</span>
-    <button (click)="nextPage()">&gt;</button>
+    <div class="campanias-list">
+      <div class="campania-header">
+        <span class="campania-name">Nombre</span>
+        <span class="campania-mensaje">Mensaje</span>
+        <span class="campania-fecha">Fecha de Creación</span>
+        <span class="campania-status">Estado</span>
+      </div>
+      <div *ngFor="let campania of paginatedCampanias" class="campania-item">
+        <span class="campania-name">{{ campania.nombre }}</span>
+        <span class="campania-mensaje">{{ campania.mensaje }}</span>
+        <span class="campania-fecha">{{ campania.fecha_creacion | date:'short' }}</span>
+        <span class="campania-status">{{ campania.estado }}</span>
+      </div>
+    </div>
+    <div class="pagination-controls">
+      <button (click)="previousPage()">&lt;</button>
+      <span>{{ currentPage }}</span>
+      <button (click)="nextPage()">&gt;</button>
+    </div>
   </div>
 </div>

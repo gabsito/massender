@@ -1,40 +1,16 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CampaniasService {
+  private apiUrl = 'http://localhost:8000/listar-campanias';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getCampanias() {
-    // Aquí pondrías tu lógica para obtener las campanias, por ejemplo, desde una API
-    return [
-      { nombre: 'Promo Aniversario', tipo: 'Email', estado: 'Activa' },
-      { nombre: 'Promo Navidad', tipo: 'SMS', estado: 'Pendiente' },
-      { nombre: 'Promo Verano', tipo: 'Whatsapp', estado: 'Finalizada' },
-      { nombre: 'Promo Primavera', tipo: 'Email', estado: 'Activa' },
-      { nombre: 'Promo Aniversario', tipo: 'Email', estado: 'Activa' },
-      { nombre: 'Promo Navidad', tipo: 'SMS', estado: 'Pendiente' },
-      { nombre: 'Promo Verano', tipo: 'Whatsapp', estado: 'Finalizada' },
-      { nombre: 'Promo Primavera', tipo: 'Email', estado: 'Activa' },
-      { nombre: 'Promo Aniversario', tipo: 'Email', estado: 'Activa' },
-      { nombre: 'Promo Navidad', tipo: 'SMS', estado: 'Pendiente' },
-      { nombre: 'Promo Verano', tipo: 'Whatsapp', estado: 'Finalizada' },
-      { nombre: 'Promo Primavera', tipo: 'Email', estado: 'Activa' },
-      { nombre: 'Promo Aniversario', tipo: 'Email', estado: 'Activa' },
-      { nombre: 'Promo Navidad', tipo: 'SMS', estado: 'Pendiente' },
-      { nombre: 'Promo Verano', tipo: 'Whatsapp', estado: 'Finalizada' },
-      { nombre: 'Promo Primavera', tipo: 'Email', estado: 'Activa' },
-      { nombre: 'Promo Aniversario', tipo: 'Email', estado: 'Activa' },
-      { nombre: 'Promo Navidad', tipo: 'SMS', estado: 'Pendiente' },
-      { nombre: 'Promo Verano', tipo: 'Whatsapp', estado: 'Finalizada' },
-      { nombre: 'Promo Primavera', tipo: 'Email', estado: 'Activa' },
-      { nombre: 'Promo Aniversario', tipo: 'Email', estado: 'Activa' },
-      { nombre: 'Promo Navidad', tipo: 'SMS', estado: 'Pendiente' },
-      { nombre: 'Promo Verano', tipo: 'Whatsapp', estado: 'Finalizada' },
-      { nombre: 'Promo Primavera', tipo: 'Email', estado: 'Activa' },
-      // Otros registros
-    ];
+  getCampanias(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
   }
 }
