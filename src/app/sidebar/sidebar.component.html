@@ -1,27 +1,26 @@
-<aside class="flex column sidebar" >
+<aside class="flex column sidebar">
 
-    <div class="logo">
-        <img src="logo.png" alt="Massender">
-    </div>
+  <div class="logo">
+      <img src="logo.png" alt="Massender">
+  </div>
 
-    <div class="usuario">
-        <h2>Nombre</h2>
-    </div>
-    
+  <div class="usuario">
+      <h2>Nombre</h2>
+  </div>
 
-    <nav class="flex column">
-        <a class="sidebar-button" (click)="toggleMenu()" [class]="showMenu ? 'selected' : ''">Campañas</a>
-        <div class="menu-pop flex column" [class]="showMenu ? '' : 'hidden'">
-            <a class="sub-button">Whatsapp</a>
-            <a class="sub-button">Email</a>
-            <a class="sub-button">SMS</a>
-        </div>
-        <a class="sidebar-button" routerLink = './destinatarios'>Destinatarios</a>
-        <a class="sidebar-button">Reportes</a>
-        <a class="sidebar-button" routerLink ='./empresas'>Empresa</a>
-        <a class="sidebar-button" routerLink = './pagos'>Pagos</a>
-        <a class="sidebar-button" routerLink = './configuracion'>Configuración</a>
-        <button class="sidebar-button" (click)="logout();" >Cerrar Sesión</button>
-    </nav>
+  <nav class="flex column">
+      <a class="sidebar-button" (click)="toggleCampaniasMenu()">Campañas</a>
+      <div class="menu-pop flex column" [class]="showCampaniasMenu ? '' : 'hidden'">
+          <a class="sub-button" (click)="navigateTo('whatsapp')">Whatsapp</a>
+          <a class="sub-button" (click)="navigateTo('email')">Email</a>
+          <a class="sub-button" (click)="navigateTo('sms')">SMS</a>
+      </div>
+      <a class="sidebar-button" routerLink="/dashboard/destinatarios" routerLinkActive="selected">Destinatarios</a>
+      <a class="sidebar-button" routerLink="/dashboard/reportes" routerLinkActive="selected">Reportes</a>
+      <a class="sidebar-button" routerLink="/dashboard/empresas" routerLinkActive="selected">Empresa</a>
+      <a class="sidebar-button" routerLink="/dashboard/pagos" routerLinkActive="selected">Pagos</a>
+      <a class="sidebar-button" routerLink="/dashboard/configuracion" routerLinkActive="selected">Configuración</a>
+      <button class="sidebar-button" (click)="logout();">Cerrar Sesión</button>
+  </nav>
 
 </aside>

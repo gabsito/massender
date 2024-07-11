@@ -1,0 +1,77 @@
+.container {
+  min-height: 100dvh;
+}
+
+.title-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(3, 20, 20);
+  padding: 15px;
+  padding-left: 35px;
+}
+
+.title-button h1 {
+  color: azure;
+  background-color: rgb(3, 20, 20);
+  margin: 0;
+  font-size: 40px;
+}
+
+.description p {
+  font-size: 20px;
+  padding-top: 35px;
+  padding-left: 35px;
+}
+
+.main {
+  padding: 20px;
+}
+
+.header-content {
+  margin-bottom: 20px;
+}
+
+.campanias-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.campania-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background: #333;
+  color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.campania-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background: #f1f1f1;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.campania-name,
+.campania-mensaje,
+.campania-fecha,
+.campania-status {
+  flex: 1;
+  text-align: center;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination-controls button {
+  margin: 0 5px;
+}
