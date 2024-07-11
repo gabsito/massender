@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CampaniasService {
-  private apiUrl = 'http://localhost:8000/listar-campanias';
+  private apiUrl = 'https://jandryrt15.pythonanywhere.com/massender/listar-campanias';
 
   constructor(private http: HttpClient) { }
 

@@ -46,7 +46,7 @@ export class CreacionDeCampaniaComponent implements OnInit, AfterViewInit {
   }
 
   loadFiltros() {
-    this.http.get<{ id: number, name: string, value: string }[]>('http://localhost:8000/listar-filtros')
+    this.http.get<{ id: number, name: string, value: string }[]>('https://jandryrt15.pythonanywhere.com/massender/listar-filtros')
       .subscribe(
         data => {
           this.filtros = data;
@@ -58,7 +58,7 @@ export class CreacionDeCampaniaComponent implements OnInit, AfterViewInit {
   }
 
   loadListas() {
-    this.http.get<{ id: number, nombre: string }[]>('http://localhost:8000/listar-destinatarios')
+    this.http.get<{ id: number, nombre: string }[]>('https://jandryrt15.pythonanywhere.com/massender/listar-destinatarios')
       .subscribe(
         data => {
           this.listas = data.map(lista => ({ id: lista.id, nombre: lista.nombre }));
@@ -86,7 +86,7 @@ export class CreacionDeCampaniaComponent implements OnInit, AfterViewInit {
         lista_id: formData.listaDestinatarios
       };
 
-      this.http.post('http://localhost:8000/guardar-campania', campaniaData)
+      this.http.post('https://jandryrt15.pythonanywhere.com/massender/guardar-campania', campaniaData)
         .subscribe(
           response => {
             console.log('Campaña guardada con éxito', response);

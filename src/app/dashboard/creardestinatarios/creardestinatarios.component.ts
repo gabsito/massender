@@ -106,7 +106,7 @@ export class CreardestinatariosComponent {
           destinatarios: formattedData
         };
 
-        this.http.post('http://localhost:8000/massender/guardar-destinatarios', data).subscribe(
+        this.http.post('https://jandryrt15.pythonanywhere.com/massender/guardar-destinatarios', data).subscribe(
           response => {
             console.log('Respuesta del servidor:', response);
             this.dialogRef.close(data); // Devolver la lista creada completa
@@ -125,7 +125,7 @@ export class CreardestinatariosComponent {
         destinatarios: []
       };
 
-      this.http.post('http://localhost:8000/massender/guardar-destinatarios', data).subscribe(
+      this.http.post('https://jandryrt15.pythonanywhere.com/massender/guardar-destinatarios', data).subscribe(
         response => {
           console.log('Respuesta del servidor:', response);
           this.dialogRef.close(data); // Devolver la lista creada completa

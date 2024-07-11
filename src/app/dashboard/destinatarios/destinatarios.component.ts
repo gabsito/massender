@@ -43,7 +43,7 @@ export class DestinatariosComponent implements OnInit {
   }
 
   loadLists(): void {
-    this.http.get<Lista[]>('http://localhost:8000/massender/listar-destinatarios').subscribe(
+    this.http.get<Lista[]>('https://jandryrt15.pythonanywhere.com/massender/listar-destinatarios').subscribe(
       data => {
         this.dataSource.data = data.map(list => ({
           ...list,
