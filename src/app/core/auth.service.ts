@@ -9,7 +9,8 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  tokenURL = '/api/massender/token'
+  // tokenURL = '/api/massender/token'
+  tokenURL = 'https://jandryrt15.pythonanywhere.com/massender/token'
 
   constructor(private http: HttpClient, private router:Router) { }
 
