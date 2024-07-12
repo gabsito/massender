@@ -34,7 +34,7 @@ export class VerDestinatariosPorListaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.http.get<Destinatario[]>(`http://localhost:8000/massender/verdestinatarioporlista/${this.data.listaId}`).subscribe(
+    this.http.get<Destinatario[]>(`https://jandryrt15.pythonanywhere.com/verdestinatarioporlista/${this.data.listaId}`).subscribe(
       data => {
         this.destinatarios = data;
       },
