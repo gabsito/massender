@@ -1,37 +1,72 @@
-.container{
-    min-height: 100dvh;
+.container {
+  min-height: 100dvh;
 }
 
-.title-button{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgb(3, 20, 20);
-    padding: 15px;
-    padding-left: 35px;
+.title-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(3, 20, 20);
+  padding: 15px;
+  padding-left: 35px;
 }
 
-.title-button h1{
-    color: azure;
-    background-color: rgb(3, 20, 20);
-    margin: 0;
-    font-size: 40px;
+.title-button h1 {
+  color: azure;
+  background-color: rgb(3, 20, 20);
+  margin: 0;
+  font-size: 40px;
 }
 
-.btn{
-    font-size: 17px;
-    width: 145px;
-    height: 40px;
-    background-color: rgb(90, 124, 124);
-    color: rgb(255, 255, 255);
-    border-radius: 10px;
-    cursor: pointer;
+.btn, .btn-custom {
+  color: rgb(255, 255, 255); /* Color del texto blanco */
 }
 
-.description p{
-    font-size: 20px;
-    padding-top: 35px;
-    padding-left: 35px;
+.btn {
+  font-size: 17px;
+  width: 145px;
+  height: 40px;
+  background-color: rgb(90, 124, 124);
+  border-radius: 10px;
+  cursor: pointer;
 }
 
+.btn-custom {
+  font-size: 14px; /* Ajusta el tamaño del texto para que sea más pequeño */
+  min-width: 120px; /* Establece un ancho mínimo común */
+  height: auto; /* Permite que la altura se ajuste al contenido */
+  padding: 8px 12px; /* Ajusta el padding para hacer el botón más pequeño */
+  background-color: #84c772; /* Usa el mismo color de fondo */
+  color: rgb(255, 255, 255) !important; /* Asegura que el texto sea blanco */
+  border-radius: 10px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  transition: background-color 0.3s ease; /* Animación suave al pasar el mouse */
+  margin-right: 8px; /* Añade un margen derecho para separar los botones */
+}
+
+.btn-custom:last-child {
+  margin-right: 0; /* Quita el margen derecho del último botón */
+}
+
+.description p {
+  font-size: 20px;
+  padding-top: 35px;
+  padding-left: 35px;
+}
+
+.mat-paginator-container {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0; /* Añade un poco de espacio alrededor del paginator */
+}
+
+.mat-paginator {
+  color: rgb(255, 255, 255); /* Color del texto */
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+.mat-paginator .mat-button, .mat-paginator .mat-icon-button {
+  color: rgb(255, 255, 255); /* Color del texto en los botones */
+  border-radius: 0; /* Botones cuadrados */
+}

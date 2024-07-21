@@ -7,26 +7,41 @@
   </div>
   <div class="main">
     <div class="header-content">
-      <span>Registros: {{ campanias.length }}</span>
+      <span>Registros: {{ dataSource.data.length }}</span>
     </div>
-    <div class="campanias-list">
-      <div class="campania-header">
-        <span class="campania-name">Nombre</span>
-        <span class="campania-mensaje">Mensaje</span>
-        <span class="campania-fecha">Fecha de Creación</span>
-        <span class="campania-status">Estado</span>
-      </div>
-      <div *ngFor="let campania of paginatedCampanias" class="campania-item">
-        <span class="campania-name">{{ campania.nombre }}</span>
-        <span class="campania-mensaje">{{ campania.mensaje }}</span>
-        <span class="campania-fecha">{{ campania.fecha_creacion | date:'short' }}</span>
-        <span class="campania-status">{{ campania.estado }}</span>
-      </div>
-    </div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let campania"> {{ campania.nombre }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="mensaje">
+        <th mat-header-cell *matHeaderCellDef> Mensaje </th>
+        <td mat-cell *matCellDef="let campania"> {{ campania.mensaje }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="fecha_creacion">
+        <th mat-header-cell *matHeaderCellDef> Fecha de Creación </th>
+        <td mat-cell *matCellDef="let campania"> {{ campania.fecha_creacion | date:'short' }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="lista">
+        <th mat-header-cell *matHeaderCellDef> Lista </th>
+        <td mat-cell *matCellDef="let campania"> {{ campania.lista_nombre }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let campania">
+          <button mat-button color="warn" (click)="eliminarCampania(campania.id)">Eliminar</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
     <div class="pagination-controls">
-      <button (click)="previousPage()">&lt;</button>
-      <span>{{ currentPage }}</span>
-      <button (click)="nextPage()">&gt;</button>
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
     </div>
   </div>
 </div>
