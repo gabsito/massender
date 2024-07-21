@@ -17,20 +17,31 @@
         <td mat-cell *matCellDef="let list"> {{list.nombre}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="fechaCreacion">
-        <th mat-header-cell *matHeaderCellDef> Fecha de Creación </th>
-        <td mat-cell *matCellDef="let list"> {{list.fecha_modificacion}} </td>
+      <ng-container matColumnDef="fecha_modificacion">
+        <th mat-header-cell *matHeaderCellDef> Fecha de Modificación </th>
+        <td mat-cell *matCellDef="let list"> {{list.fecha_modificacion | date}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="estado">
+        <th mat-header-cell *matHeaderCellDef> Estado </th>
+        <td mat-cell *matCellDef="let list"> {{list.estado === 'A' ? 'Activa' : 'Inactiva'}} </td>
       </ng-container>
 
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> Acciones </th>
-        <td mat-cell *matCellDef="let list" >
-          <button mat-button (click)="verContactos(list)">Ver Contactos</button>
+        <td mat-cell *matCellDef="let list">
+          <button mat-button class="btn-custom" (click)="verContactos(list)">Ver Contactos</button>
+          <button mat-button class="btn-custom" (click)="desactivarLista(list)" *ngIf="list.estado === 'A'">Desactivar</button>
+          <button mat-button class="btn-custom" (click)="activarLista(list)" *ngIf="list.estado === 'I'">Activar</button>
+          <button mat-button class="btn-custom" (click)="eliminarLista(list)">Eliminar</button>
         </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+    <div class="mat-paginator-container">
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+    </div>
   </div>
 </div>

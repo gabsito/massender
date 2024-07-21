@@ -7,7 +7,9 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:massender": "node dist/massender/server/server.mjs"
+    "serve:ssr:massender": "node dist/massender/server/server.mjs",
+    "lint": "eslint .",
+    "format": "prettier --write ."
   },
   "private": true,
   "dependencies": {
@@ -30,19 +32,25 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^18.0.3",
+    "@angular-eslint/eslint-plugin": "^18.1.0",
+    "@angular-eslint/template-parser": "^18.1.0",
     "@angular/cli": "^18.0.3",
     "@angular/compiler-cli": "^18.0.0",
-    "@eslint/js": "^9.5.0",
+    "@eslint/js": "^9.7.0",
     "@types/express": "^4.17.17",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^18.18.0",
-    "globals": "^15.6.0",
+    "@typescript-eslint/eslint-plugin": "^7.16.1",
+    "@typescript-eslint/parser": "^7.16.1",
+    "eslint": "^9.7.0",
+    "globals": "^15.8.0",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.16.1"
   }
 }
