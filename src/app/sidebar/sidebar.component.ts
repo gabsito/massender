@@ -13,6 +13,7 @@ export class SidebarComponent {
 
   showMenu: boolean = false;
   showCampaniasMenu: boolean = false; // Asegúrate de inicializar showCampaniasMenu
+  showDestMenu: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) { } // Añade Router
 
@@ -23,6 +24,11 @@ export class SidebarComponent {
   toggleCampaniasMenu() {
     this.showCampaniasMenu = !this.showCampaniasMenu;
     this.router.navigate(['/dashboard/campanias']); // Navega al componente de Campanias
+  }
+
+  toggleDestMenu() {
+    this.showDestMenu = !this.showDestMenu;
+    this.router.navigate(['/dashboard/destinatarios']); // Navega al componente de Destinatarios
   }
 
   navigateTo(submenu: string) {

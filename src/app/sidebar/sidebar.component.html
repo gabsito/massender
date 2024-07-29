@@ -15,7 +15,10 @@
           <a class="sub-button" (click)="navigateTo('email')">Email</a>
           <a class="sub-button" (click)="navigateTo('sms')">SMS</a>
       </div>
-      <a class="sidebar-button" routerLink="/dashboard/destinatarios" routerLinkActive="selected">Destinatarios</a>
+      <a class="sidebar-button" (click)="toggleDestMenu()" [class]="showDestMenu ? 'selected' : ''" routerLink = '/destinatarios'>Destinatarios</a>
+        <div class="menu-pop flex column" [class]="showDestMenu ? '' : 'hidden'">
+            <a class="sub-button" routerLink = 'dashboard/destinatarios/filtros'>Filtros</a>
+        </div>
       <a class="sidebar-button" routerLink="/dashboard/reportes" routerLinkActive="selected">Reportes</a>
       <a class="sidebar-button" routerLink="/dashboard/empresas" routerLinkActive="selected">Empresa</a>
       <a class="sidebar-button" routerLink="/dashboard/pagos" routerLinkActive="selected">Pagos</a>

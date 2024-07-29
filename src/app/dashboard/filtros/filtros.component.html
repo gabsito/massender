@@ -4,9 +4,13 @@
     </div>
     <div class="description">
         <p>En esta sección podrás aplicar filtros a tus destinatarios.</p>
-        <button mat-button>Crear Filtro</button>
+        <button mat-button (click)="openDialog()">Crear Filtro</button>
     </div>
     <div class="filtros">
         <p>Filtros Creados</p>
+        <div class="ver-filtros" *ngFor="let filtro of filtros">
+            <p>Lista: {{ filtro.listaDest.nombre }}</p>
+            <p>Filtro:</p>
+            <button>{{ filtro.nombre }}</button>
     </div>
 </div>

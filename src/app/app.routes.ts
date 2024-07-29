@@ -8,7 +8,7 @@ import { CargadestinatariosComponent } from './dashboard/cargadestinatarios/carg
 import { authGuard } from './guards/auth.guard';
 import { CampaniasComponent } from './dashboard/campanias/campanias.component'; // Importa el componente de campanias
 import { CreacionDeCampaniaComponent } from './dashboard/creaciondecampania/creaciondecampania.component';
-
+import { FiltrosComponent } from './dashboard/filtros/filtros.component'; // Importa el componente de filtros
 
 export const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
@@ -16,6 +16,7 @@ export const routes: Routes = [
     path: 'dashboard', canActivate: [authGuard] , component: DashComponent, children: [ //all users
       { path: 'empresas', component: EmpresasComponent }, //superadmin
       { path: 'destinatarios', component: DestinatariosComponent }, //all users
+      { path: 'dashboard/destinatarios/filtros', component: FiltrosComponent}, //all users but superadmin
       { path: 'destinatarios/:id/importar', component: CargadestinatariosComponent}, //superadmin + admin
       { path: 'pagos', component: PagosComponent },
       { path: 'campanias', component: CampaniasComponent },

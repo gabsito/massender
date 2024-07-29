@@ -49,3 +49,23 @@
 .filtros p{
     font-size: 30px; 
 }
+
+.ver-filtros {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 25px;
+    max-width: 350px; /* Ancho máximo del contenedor */
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgb(3, 20, 20);
+    margin-bottom: 15px;
+}
+
+.ver-filtros p{
+    font-size: 20px;
+}
+
+.ver-filtros button{
+    width: 100px;
+}

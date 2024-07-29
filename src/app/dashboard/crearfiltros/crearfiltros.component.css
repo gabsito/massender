@@ -1,0 +1,98 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  /* Form container */
+  .form-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Title styling */
+  .title-button {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .title-button h1 {
+    color: #003d3d;
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  /* Form group styling */
+  .form-group {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 16px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  .form-group select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  /* Form actions */
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .form-actions button {
+    font-size: 16px;
+    padding: 8px 20px;
+    border-radius: 4px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .form-container {
+      padding: 15px;
+    }
+  
+    .form-group input {
+      padding: 6px;
+      font-size: 14px;
+    }
+    .form-actions button {
+      font-size: 14px;
+      padding: 6px 15px;
+    }
+    
+  }
+  
