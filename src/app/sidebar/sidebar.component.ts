@@ -17,8 +17,18 @@ export class SidebarComponent {
 
   constructor(private authService: AuthService, private router: Router) { } // Añade Router
 
-  toggleMenu() {
-    this.showMenu = !this.showMenu;
+  toggleMenu(menu: string) {
+    if (menu === 'Campañas') {
+      this.showCampaniasMenu = !this.showCampaniasMenu;
+      if (this.showCampaniasMenu) {
+        this.showMenu = false; // Cerrar otros menús si es necesario
+      }
+    } else if (menu === 'Destinatarios') {
+      this.showMenu = !this.showMenu;
+      if (this.showMenu) {
+        this.showCampaniasMenu = false; // Cerrar otros menús si es necesario
+      }
+    }
   }
 
   toggleCampaniasMenu() {
