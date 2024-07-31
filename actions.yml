@@ -1,0 +1,40 @@
+name: Deploy Angular to PythonAnywhere
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build Angular project
+      run: npm run build --prod
+
+    - name: Rename index.csr.html to index.html
+      run: mv dist/massender/browser/index.csr.html dist/massender/browser/index.html
+
+    - name: Install SSH key
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Copy files to PythonAnywhere
+      run: scp -r dist/massender/browser/* gabsito@ssh.pythonanywhere.com:/home/gabsito/massender/
+
+    - name: Restart PythonAnywhere web app
+      run: |
+        ssh gabsito@ssh.pythonanywhere.com 'pa_reload_webapp gabsito.pythonanywhere.com'
