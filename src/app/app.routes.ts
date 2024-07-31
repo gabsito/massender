@@ -9,6 +9,9 @@ import { authGuard } from './guards/auth.guard';
 import { CampaniasComponent } from './dashboard/campanias/campanias.component'; // Importa el componente de campanias
 import { CreacionDeCampaniaComponent } from './dashboard/creaciondecampania/creaciondecampania.component';
 import { FiltrosComponent } from './dashboard/filtros/filtros.component'; // Importa el componente de filtros
+import { ReportesComponent } from './dashboard/reportes/reportes.component'; // Importa el nuevo componente Reportes
+
+
 
 export const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
@@ -21,6 +24,7 @@ export const routes: Routes = [
       { path: 'pagos', component: PagosComponent },
       { path: 'campanias', component: CampaniasComponent },
       { path: 'creaciondecampania', component: CreacionDeCampaniaComponent},
+      { path: 'reportes', component: ReportesComponent }, // nueva ruta para ReportesComponent
     ]
   },
   { path: 'login', component: LoginComponent }, //all users

@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="title-button">
+    <h1>Reporte de Campañas</h1>
+    <button mat-button (click)="descargarPDF()">Descargar PDF</button>
+  </div>
+  <div class="main">
+    <div class="filters">
+      <form (ngSubmit)="aplicarFiltro()">
+        <mat-form-field appearance="fill">
+          <mat-label>Fecha Desde</mat-label>
+          <input matInput [matDatepicker]="picker1" [(ngModel)]="fechaDesde" name="fechaDesde">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Fecha Hasta</mat-label>
+          <input matInput [matDatepicker]="picker2" [(ngModel)]="fechaHasta" name="fechaHasta">
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Lista de Clientes</mat-label>
+          <mat-select [(ngModel)]="listaSeleccionada" name="listaSeleccionada">
+            <mat-option *ngFor="let lista of listas" [value]="lista">{{ lista.nombre }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit">Aplicar Filtro</button>
+        <button mat-raised-button color="warn" type="button" (click)="quitarFiltros()">Quitar Filtros</button>
+      </form>
+    </div>
+
+    <div class="header-content">
+      <span>Registros: {{ dataSource.data.length }}</span>
+    </div>
+    <div class="table-container">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td mat-cell *matCellDef="let campania"> {{ campania.nombre }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="mensaje">
+          <th mat-header-cell *matHeaderCellDef> Mensaje </th>
+          <td mat-cell *matCellDef="let campania"> {{ campania.mensaje }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="fecha_creacion">
+          <th mat-header-cell *matHeaderCellDef> Fecha de Creación </th>
+          <td mat-cell *matCellDef="let campania"> {{ campania.fecha_creacion | date:'short' }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="lista">
+          <th mat-header-cell *matHeaderCellDef> Lista </th>
+          <td mat-cell *matCellDef="let campania"> {{ campania.lista_nombre }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="filtro">
+          <th mat-header-cell *matHeaderCellDef> Filtro Aplicado </th>
+          <td mat-cell *matCellDef="let campania"> {{ obtenerNombreFiltro(campania.filtro_id) }} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+    <div class="pagination-controls">
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
+</div>
