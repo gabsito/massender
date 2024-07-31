@@ -12,7 +12,7 @@ export class AuthService {
   // tokenURL = '/api/massender/token'
   tokenURL = 'https://jandryrt15.pythonanywhere.com/massender/token'
 
-  constructor(private http: HttpClient, private router:Router) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   getAuthToken(username: string, password: string): Observable<Object>{
     const body = new HttpParams().set('username', username).set('password', password);
