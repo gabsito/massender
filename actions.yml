@@ -1,4 +1,4 @@
-name: Deploy Angular to PythonAnywhere
+name: Deploy Massender (angular-app) to PythonAnywhere
 
 on:
   push:
