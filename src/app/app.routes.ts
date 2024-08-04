@@ -10,7 +10,7 @@ import { CampaniasComponent } from './dashboard/campanias/campanias.component'; 
 import { CreacionDeCampaniaComponent } from './dashboard/creaciondecampania/creaciondecampania.component';
 import { FiltrosComponent } from './dashboard/filtros/filtros.component'; // Importa el componente de filtros
 import { ReportesComponent } from './dashboard/reportes/reportes.component'; // Importa el nuevo componente Reportes
-
+import { ResetpasswordComponent } from './dashboard/resetpassword/resetpassword.component';
 
 
 export const routes: Routes = [
@@ -25,6 +25,7 @@ export const routes: Routes = [
       { path: 'campanias', component: CampaniasComponent },
       { path: 'creaciondecampania', component: CreacionDeCampaniaComponent},
       { path: 'reportes', component: ReportesComponent }, // nueva ruta para ReportesComponent
+      { path: 'configuracion', component: ResetpasswordComponent } //admin only
     ]
   },
   { path: 'login', component: LoginComponent }, //all users

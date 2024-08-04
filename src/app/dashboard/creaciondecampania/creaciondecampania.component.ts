@@ -6,6 +6,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { MockBackendService } from '../../services/mock-backend.service';
+import { Filtros } from '../../classes/filtros';
 
 @Component({
   selector: 'app-creaciondecampania',
@@ -27,7 +29,9 @@ export class CreacionDeCampaniaComponent implements OnInit, AfterViewInit {
   filtros: { id: number, name: string, value: string }[] = [];
   listas: { id: number, nombre: string }[] = [];
 
-  constructor(private fb: FormBuilder, private cdr: ChangeDetectorRef, private http: HttpClient) {
+  filtrosPrueba: Filtros[] = [];
+
+  constructor(private fb: FormBuilder, private cdr: ChangeDetectorRef, private http: HttpClient, private mockBackendService: MockBackendService) {
     this.campaignForm = this.fb.group({
       nombreCampania: ['', Validators.required],
       mensaje: ['', Validators.required],
@@ -37,6 +41,7 @@ export class CreacionDeCampaniaComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    this.filtrosPrueba = this.mockBackendService.obtenerFiltros();
     this.loadFiltros();
     this.loadListas();
   }
@@ -74,6 +79,7 @@ export class CreacionDeCampaniaComponent implements OnInit, AfterViewInit {
       // Lógica para programar el envío
       console.log('Programar Envio');
     }
+    console.log(this.filtrosPrueba);
   }
 
   enviarAhora() {

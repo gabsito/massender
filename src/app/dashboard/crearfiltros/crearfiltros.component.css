@@ -14,7 +14,7 @@
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 100%;
+    /*width: 100%;*/
     max-width: 400px;
     box-sizing: border-box;
     display: flex;
@@ -29,6 +29,7 @@
   }
   
   .title-button h1 {
+    font-weight: bold;
     color: #003d3d;
     font-size: 24px;
     margin: 0;
@@ -37,18 +38,19 @@
   /* Form group styling */
   .form-group {
     display: flex;
-    width: 100%;
+    width: auto;
     gap: 10px;
     flex-direction: column;
   }
   
   .form-group label {
     display: block;
+    color: black;
     font-size: 16px;
   }
   
   .form-group input {
-    width: 100%;
+    width: auto;
     padding: 8px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -57,7 +59,7 @@
   }
 
   .form-group select {
-    width: 100%;
+    width: auto;
     padding: 8px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -66,10 +68,12 @@
   }
   
   /* Form actions */
+
+
   .form-actions {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: auto;
     margin-top: 20px;
   }
   
@@ -78,8 +82,22 @@
     padding: 8px 20px;
     border-radius: 4px;
   }
+
+  .radio-buttons .claves {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  } 
+
+  .radio-buttons .valores {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+  } 
+
   
-  /* Responsive adjustments */
+  /* Responsive adjustments 
   @media (max-width: 600px) {
     .form-container {
       padding: 15px;
@@ -95,4 +113,4 @@
     }
     
   }
-  
+  */

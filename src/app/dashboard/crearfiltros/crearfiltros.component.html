@@ -1,48 +1,36 @@
 <div mat-dialog-content class="form-container">
-    <div class="title-button">
-      <h1>Crear Filtro</h1>
-    </div>
-    <form [formGroup]="createFilterForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="nombreFiltro">Nombre del filtro</label>
-        <input id="nombreFiltro" formControlName="nombre">
-        <label for="nombreLista">Selecciona la lista a filtrar</label>
-        <select name="listaDestinatarios" id="listaDestinatarios" formControlName="listaDestinatarios">
-            <option value="" disabled selected>Escoge una lista</option>
-            <option *ngFor="let lista of listas" >{{ lista.nombre }}</option>
-        </select>
-
-      </div>
-      
-      <!--aqui se debe mostrar los nombres de los encabezados de la lista seleccionada 
-      para seleccionar cual se va a filtrar
-      por ejemplo:
-      nombre [ ]
-      cedula [ ]
-      genero [X]
-      edad   [ ]
-      telefono [ ]
-      correo [ ]
-      -->
-
-      <!--cuando se seleccione alguno de los encabezados 
-      se debe mostrar los valores que tiene ese encabezado en la lista de contactos
-      para seleccionar qué valor se va a filtrar
-      por ejemplo: si arriba se selecciona genero entonces
-      masculino [ ]
-      femenino [X]
-      otro [ ]
-      -->
-      
-      <!--se guardan los parámetros ingresados y ahora la lista tiene un filtro
-      que puede aplicarse cuando se realice una campaña
-      -->
-
-      <div class="form-actions">
-        <button mat-button type="submit" color="primary" >Añadir</button>
-        <button mat-button type="button" color="warn" (click)="onNoClick()">Cancelar</button>
-      </div>
-
-    </form>
+  <div class="title-button">
+    <h1>Crear Filtro</h1>
   </div>
-  
+  <form [formGroup]="createFilterForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nombreFiltro">Nombre del filtro</label>
+      <input id="nombreFiltro" formControlName="nombre">
+      <label for="nombreLista">Selecciona la lista a filtrar</label>
+      <select name="listaDestinatarios" id="listaDestinatarios" formControlName="listaDestinatarios" (change)="onSelect($event)">
+        <option value="" disabled selected>Escoge una lista</option>
+        <option *ngFor="let lista of listas">{{ lista.nombre }}</option>
+      </select>
+      <div class="radio-buttons" *ngIf="listasClaves.length > 0">
+        <p>Selecciona el campo a filtrar</p>
+        <div class="claves" *ngFor="let clave of listasClaves">
+          <label [for]="clave">{{ clave }}</label>
+          <input type="radio" [id]="clave" name="filtro" [value]="clave" (change)="onRadioChange($event)">
+        </div>
+        <div *ngIf="claveSeleccionada && listaValores && listaValores[claveSeleccionada] && listaValores[claveSeleccionada].length > 0">
+          <p>Filtrar: {{ claveSeleccionada }}</p>
+          <div class="valores" *ngFor="let valor of listaValores[claveSeleccionada]">
+            <label [for]="valor">{{ valor }}</label>
+            <input type="radio" [id]="valor" name="valorFiltro" [value]="valor" (change)="onRadioChange2($event)">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button mat-button type="submit" color="primary">Añadir</button>
+      <button mat-button type="button" color="warn" (click)="onNoClick()">Cancelar</button>
+    </div>
+
+  </form>
+</div>
