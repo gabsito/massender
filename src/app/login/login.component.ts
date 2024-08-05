@@ -4,6 +4,7 @@ import { AuthService } from '../core/auth.service';
 import { Token } from '../interfaces/token';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { Router } from '@angular/router';
+import { log } from 'console';
 
 @Component({
   selector: 'app-login',
@@ -41,9 +42,11 @@ export class LoginComponent {
       (data) => {
         console.log(data);
         const token = data as Token;
-        this.authService.saveToken(token.access_token);
+        this.authService.saveToken(token.access_token, token.user_id, token.refresh_token);
         this.loading = false;
-        this.router.navigate(['/dashboard/destinatarios']);
+        this.authService.getUserAccess();
+        this.authService.getAccessRoutes();
+        this.router.navigate(['/dashboard/reportes']);
       },
       (error) => {
         this.loading = false;

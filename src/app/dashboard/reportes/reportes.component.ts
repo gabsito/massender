@@ -13,6 +13,7 @@ import { CampaniasService } from '../../services/campanias.service';
 import { FiltrosService } from '../../services/filtros.service'; // Importar el nuevo servicio
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
+import { AuthService } from '../../core/auth.service';
 
 @Component({
   selector: 'app-reportes',
@@ -45,13 +46,16 @@ export class ReportesComponent implements OnInit {
 
   displayedColumns: string[] = ['nombre', 'mensaje', 'fecha_creacion', 'lista', 'filtro'];
 
-  constructor(private campaniasService: CampaniasService, private filtrosService: FiltrosService) { }
+  constructor(private campaniasService: CampaniasService, private filtrosService: FiltrosService, private authService: AuthService) { }
 
   ngOnInit(): void {
+
+    this.authService.getAccessRoutes();
+
     // Obtener todas las campañas inicialmente
     this.campaniasService.getCampanias().subscribe((data: any[]) => {
-      console.log('Campañas recibidas:', data);
-      data.forEach(campania => console.log(`Campania: ${campania.nombre}, Filtro ID: ${campania.filtro_id}`));
+      // console.log('Campañas recibidas:', data);
+      // data.forEach(campania => console.log(`Campania: ${campania.nombre}, Filtro ID: ${campania.filtro_id}`));
       this.originalData = data; // Guardar los datos originales
       this.dataSource.data = data;
       this.dataSource.paginator = this.paginator;
@@ -60,13 +64,13 @@ export class ReportesComponent implements OnInit {
     // Obtener listas de clientes
     this.campaniasService.getListas().subscribe((data: any[]) => {
       this.listas = data;
-      console.log('Listas:', data);
+      // console.log('Listas:', data);
     });
 
     // Obtener filtros
     this.filtrosService.getFiltros().subscribe((data: any[]) => {
       this.filtros = data;
-      console.log('Filtros:', data);
+      // console.log('Filtros:', data);
     });
   }
 
@@ -93,7 +97,7 @@ export class ReportesComponent implements OnInit {
 
     this.dataSource.data = filtradas;
     this.dataSource.paginator = this.paginator;
-    console.log('Campañas filtradas:', filtradas);
+    // console.log('Campañas filtradas:', filtradas);
   }
 
   quitarFiltros(): void {
@@ -126,14 +130,14 @@ export class ReportesComponent implements OnInit {
     doc.setTextColor(100);
 
     const filteredData = this.dataSource.data;
-    console.log('Datos filtrados para PDF:', filteredData);
+    // console.log('Datos filtrados para PDF:', filteredData);
 
     const generarReporte = async () => {
       for (let i = 0; i < filteredData.length; i++) {
         const campania = filteredData[i];
         const filtroId = campania.filtro_id || 'N'; // Asegúrate de que el campo `filtro_id` está presente en la campaña
         const filtroValor = this.obtenerValorFiltro(filtroId);
-        console.log(`Procesando campaña: ${campania.nombre}, Filtro ID: ${filtroId}, Filtro Valor: ${filtroValor}`);
+        // console.log(`Procesando campaña: ${campania.nombre}, Filtro ID: ${filtroId}, Filtro Valor: ${filtroValor}`);
 
         if (i > 0) doc.addPage();
         doc.setFontSize(14);
@@ -156,12 +160,12 @@ export class ReportesComponent implements OnInit {
 
         await new Promise<void>((resolve) => {
           this.campaniasService.getDestinatariosPorLista(campania.lista_id).subscribe(destinatarios => {
-            console.log(`Destinatarios obtenidos para lista ${campania.lista_id}:`, destinatarios);
+            // console.log(`Destinatarios obtenidos para lista ${campania.lista_id}:`, destinatarios);
 
             const destinatariosFiltrados = destinatarios.filter((d: any) => {
               return filtroValor === 'N' || d.genero === filtroValor;
             });
-            console.log(`Destinatarios filtrados para filtro ID ${filtroId}:`, destinatariosFiltrados);
+            // console.log(`Destinatarios filtrados para filtro ID ${filtroId}:`, destinatariosFiltrados);
 
             const destinatariosData = destinatariosFiltrados.map((d: any) => [
               d.cedula,

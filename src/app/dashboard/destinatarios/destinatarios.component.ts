@@ -9,6 +9,8 @@ import { RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { CreardestinatariosComponent } from '../creardestinatarios/creardestinatarios.component';
 import { VerDestinatariosPorListaComponent } from '../verdestinatariosporlista/verdestinatariosporlista.component';
+import { AuthService } from '../../core/auth.service';
+import { Token } from '../../interfaces/token';
 
 interface Destinatario {
   cedula: string;
@@ -34,16 +36,19 @@ interface Lista {
   templateUrl: './destinatarios.component.html',
   styleUrls: ['./destinatarios.component.css']
 })
+
 export class DestinatariosComponent implements OnInit {
   displayedColumns: string[] = ['nombre', 'fecha_modificacion', 'estado', 'actions'];
   dataSource = new MatTableDataSource<Lista>([]);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(public dialog: MatDialog, private http: HttpClient) { }
+  constructor(public dialog: MatDialog, private http: HttpClient, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.loadLists();
+    this.authService.getUserAccess();
+    this.authService.getAccessRoutes();
   }
 
   ngAfterViewInit() {
