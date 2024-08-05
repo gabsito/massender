@@ -19,6 +19,13 @@
           <mat-label>Mensaje</mat-label>
           <textarea matInput formControlName="mensaje"></textarea>
         </mat-form-field>
+        <div class="file-input-container">
+          <label for="file-upload" class="custom-file-upload">
+            Adjuntar Imagen/Video
+          </label>
+          <input id="file-upload" type="file" (change)="onFileSelected($event)" accept="image/*,video/*"/>
+        </div>
+        
         <div class="section half-section">
           <h2>Aplicar Filtro de Destinatarios</h2>
           <mat-form-field appearance="fill" class="full-width">
@@ -32,8 +39,8 @@
           <h2>Selecciona Lista de Contactos</h2>
           <mat-form-field appearance="fill" class="full-width">
             <mat-label>Selecciona una lista de destinatarios</mat-label>
-            <mat-select formControlName="listaDestinatarios">
-              <mat-option *ngFor="let lista of listas" [value]="lista.id">{{ lista.nombre }}</mat-option>
+            <mat-select formControlName="listaDestinatarios" (selectionChange)="onSelect($event)">
+              <mat-option *ngFor="let lista of listasPrueba" [value]="lista" >{{ lista.nombre }}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>

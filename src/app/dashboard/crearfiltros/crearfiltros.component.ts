@@ -14,6 +14,7 @@ import {
 import { Filtros } from '../../classes/filtros';
 import { ListasDest } from '../../classes/listas-dest';
 import { MockBackendService } from '../../services/mock-backend.service';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-crearfiltros',
@@ -25,7 +26,8 @@ import { MockBackendService } from '../../services/mock-backend.service';
     MatDialogActions,
     MatDialogClose,
     MatDialogTitle,
-    MatDialogContent,],
+    MatDialogContent,
+  ],
   templateUrl: './crearfiltros.component.html',
   styleUrl: './crearfiltros.component.css'
 })
@@ -42,7 +44,7 @@ export class CrearfiltrosComponent {
 
 
   constructor(private http: HttpClient,
-    public dialogRef: MatDialogRef<CrearfiltrosComponent>, private mockBackendService: MockBackendService) {
+    public dialogRef: MatDialogRef<CrearfiltrosComponent>, private mockBackendService: MockBackendService, private cdr: ChangeDetectorRef) {
     this.createFilterForm = new FormGroup({
       nombre: new FormControl(''),
       listaDestinatarios: new FormControl('')
@@ -91,13 +93,14 @@ export class CrearfiltrosComponent {
     return this.listas2.find(lista => lista.nombre === nombre);
   }
 
-  
+
   fillValues() {
     this.listasClaves = [];
     this.listaValores = {};
     const formData = this.createFilterForm.value;
     const listaDestinatariosNombre = formData.listaDestinatarios;
     const listaSelect = this.getListaSelect2(listaDestinatariosNombre);
+
 
     if (listaSelect) {
       listaSelect.destinatarios.forEach(destinatario => {
@@ -124,12 +127,12 @@ export class CrearfiltrosComponent {
   filter(listaSelect: ListasDest, filtrado: string): void {
     // Obtener la lista de destinatarios de la posición correcta del objeto listaSelect
     const destinatarios = Object.values(listaSelect)[4] as { [key: string]: any }[];
-  
+
     // Filtrar la lista de destinatarios basándose en el valor del radio button seleccionado
     this.listaFiltrada = destinatarios.filter(destinatario => {
       return Object.values(destinatario).some(value => value.toString().includes(filtrado));
     });
-  
+
   }
 
   onSelect(event: Event) {
@@ -164,33 +167,65 @@ export class CrearfiltrosComponent {
     const nombreFiltro = formData.nombre;
     const listaDestinatariosNombre = formData.listaDestinatarios;
     const listaSelect = this.getListaSelect(listaDestinatariosNombre);
-  
+    let filtro: Filtros | null = null;  // Definir el objeto Filtro sin inicializar
+
+
     if (listaSelect) {
+
+      // Asegurar que la propiedad 'filtros' esté inicializada
+      if (!listaSelect.filtros) {
+        listaSelect.filtros = [];
+      }
       // Crear una copia mutable del objeto listaSelect
       const listaSelectMutable = { ...listaSelect, destinatarios: [] as Record<string, any>[] };
-  
+
       // Reemplazar el contenido de la lista con la lista filtrada
       if (this.listaFiltrada.length > 0) {
         listaSelectMutable.destinatarios = [...this.listaFiltrada];
       }
-  
-      // Crear el objeto Filtro con la lista modificada
-      const filtro = new Filtros(nombreFiltro, listaSelectMutable);
 
+      // Crear el objeto Filtro con la lista modificada
+      filtro = new Filtros(nombreFiltro, listaSelectMutable);
+
+
+      //this.addFilter(listaSelect, filtro);
+
+      this.cdr.detectChanges();
       // Guardar el filtro en el servicio de backend
       this.mockBackendService.guardarFiltro(filtro);
-      
-      console.log("listaDest sin filtro ",listaSelect);
 
-      console.log("listaDest con filtro de nombre carlos",filtro);
-      
+      console.log("listaDest sin filtro ", listaSelect);
+
+      console.log("listaDest con filtro de nombre carlos", filtro);
+
       // Enviar el objeto Filtro al componente principal
       this.dialogRef.close(filtro); // Pasar el objeto Filtro al cerrar el diálogo
+
+
     } else {
       console.error('Selected list not found');
+
     }
+
+    if (filtro && listaSelect) {
+      listaSelect.filtros.push(filtro);
+      console.log('lista after', listaSelect);
+      console.log('Filtro agregado:', listaSelect.filtros);
+    }
+
+    // Actualizar la lista modificada en el backend
+    this.http.put(`https://tu-backend.com/actualizar-lista/${listaSelect?.nombre}`, listaSelect)
+      .subscribe(
+        response => {
+          console.log('Lista actualizada en el backend', response);
+        },
+        error => {
+          console.error('Error al actualizar la lista en el backend', error);
+        }
+      );
+
   }
-  
+
 
   onNoClick(): void {
     this.dialogRef.close();

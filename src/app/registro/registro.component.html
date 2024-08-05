@@ -1,0 +1,29 @@
+<div class="login-container">
+    <div class="login-box">
+      <img src="logo.png" alt="Massender Logo" class="logo">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="textbox">
+          <input id="username" formControlName="username" placeholder="Empresa" required />
+        </div>
+        
+        <div class="textbox">
+          <input id="nombre_completo" formControlName="nombre_completo" placeholder="Nombre Completo" required />
+        </div>
+        
+        <div class="textbox">
+          <input id="correo" type="email" formControlName="correo" placeholder="Correo Electrónico" required />
+        </div>
+        
+        <div class="textbox">
+          <input id="telefono" formControlName="telefono" placeholder="Teléfono" required />
+        </div>
+        
+        <div class="textbox">
+          <input id="password" type="password" formControlName="password" placeholder="Contraseña" required />
+        </div>
+        
+        <button type="submit" class="btn">Registrar</button>
+      </form>
+    </div>
+  </div>
+  

@@ -36,3 +36,8 @@ ul.errors > li {
     font-size: .75rem;
     font-weight: 300;
 }
+
+h1 {
+    font-size: 80px;
+    text-align: center;
+}
