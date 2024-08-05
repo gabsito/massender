@@ -1,6 +1,17 @@
-<div class="flex row main-container">
+<mat-drawer-container>
+    <mat-drawer mode="side" opened="true" class="sidebar">
+        <app-sidebar></app-sidebar>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div class="flex column routed">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>
+
+<!-- <div class="flex row main-container">
     <app-sidebar></app-sidebar>
     <div class="flex column routed">
         <router-outlet></router-outlet>
     </div>
-</div>
+</div> -->

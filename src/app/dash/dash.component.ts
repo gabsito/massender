@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SidebarComponent } from "../sidebar/sidebar.component";
 import { RouterOutlet } from '@angular/router';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @Component({
     selector: 'app-dash',
@@ -9,6 +10,7 @@ import { RouterOutlet } from '@angular/router';
     styleUrls: ['./dash.component.css'],
     imports: [
       SidebarComponent,
+      MatSidenavModule,
       RouterOutlet
     ]
 })

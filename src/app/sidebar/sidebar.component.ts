@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, RouterLink } from '@angular/router'; // Importa Router
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../core/auth.service';
 
 @Component({
@@ -11,11 +11,20 @@ import { AuthService } from '../core/auth.service';
 })
 export class SidebarComponent {
 
+  routes: any[] = []
+
   showMenu: boolean = false;
   showCampaniasMenu: boolean = false; // Asegúrate de inicializar showCampaniasMenu
   showDestMenu: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router) { } // Añade Router
+  constructor(private authService: AuthService, private router: Router) {
+    this.authService.currentRoutes.subscribe(
+      (data) => {
+        console.log('rutas sidebar:', data);
+        this.routes = data as any[];
+      }
+    );
+  }
 
   toggleMenu(menu: string) {
     if (menu === 'Campañas') {

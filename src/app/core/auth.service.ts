@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { lastValueFrom, Observable } from 'rxjs';
+import { lastValueFrom, Observable, Subject } from 'rxjs';
 import { User } from '../interfaces/user';
 import { Token } from '../interfaces/token';
 
@@ -11,7 +11,8 @@ import { Token } from '../interfaces/token';
 })
 export class AuthService {
 
-  routes:object = [];
+  private routes = new Subject<object>();
+  currentRoutes = this.routes.asObservable();
 
   URL = 'https://jandryrt15.pythonanywhere.com/massender'
   tokenURL = this.URL + '/token'
@@ -40,17 +41,16 @@ export class AuthService {
     });
   }
   
-  getUserAccess(): void {
-    this.getUserRol()
+  async getUserAccess(): Promise<void> {
+    await this.getUserRol()
     .then(
-      (data) => {
+      async (data) => {
         console.log(data);
         const user = data as User;
-        this.getAccess(user.rol_id)
+        await this.getAccess(user.rol_id)
         .then(
           (data) => {
-            console.log(data);
-            this.routes = data;
+            this.changeAccessRoutes(data as object[]);
           }
         ).catch(
           (error) => {
@@ -119,9 +119,20 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-  getAccessRoutes(): object {
-    console.log(this.routes);
-    return this.routes;
+  changeAccessRoutes(routes: object[]) {
+    this.routes.next(this.processRoutes(routes));
+  }
+
+  processRoutes(data: object[]): object {
+    let routes: any = [];
+    data.forEach((route: any) => {
+      routes.push({
+        'ruta': route.ruta,
+        'descripcion': route.descripcion,
+        'children': route.children != undefined ? this.processRoutes(route.children) : false
+      });
+    });
+    return routes;
   }
 
 }
