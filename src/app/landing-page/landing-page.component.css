@@ -129,6 +129,7 @@
           flex-wrap: wrap;
           max-width: 1200px;
           margin: 0 auto;
+
         }
       
         .text-content {
@@ -188,7 +189,8 @@
     .multimedia-content,
     .campaign-analysis {
       padding: 4rem 1rem;
-      background-color: #ffffff;
+      /*background-color: #ffffff;*/
+
   
       .section-content {
         display: flex;
@@ -203,19 +205,32 @@
         }
   
         h2 {
-          font-size: 1.75rem;
+          font-size: 2em;
           margin-bottom: 1rem;
         }
   
         p {
-          font-size: 1rem;
+          font-size: 1.4rem;
+          line-height: 1.5;
         }
       }
+      
     }
+
+    .segmentation, .campaign-analysis {
+      background-color: white;
+    }
+
+    .multimedia-content {
+      background-color: #dcf7da;
+    }
+
+    
   
     .pricing {
       padding: 2rem 1rem;
       text-align: center;
+      background-color: #bdf0b8;
   
       h2 {
         font-size: 1.75rem;
@@ -227,14 +242,6 @@
         justify-content: center;
         gap: 1rem;
   
-        .plan {
-          flex: 1 1 calc(33% - 1rem);
-          min-width: 200px;
-          padding: 1rem;
-          background-color: #f8f9fa;
-          border-radius: 5px;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
   
         .price {
           font-size: 1.5rem;
@@ -252,6 +259,8 @@
         }
       }
     }
+
+    
   
     footer {
       padding: 1rem;
@@ -277,4 +286,7 @@
         font-size: 1.5rem;
       }
     }
+
+    
   }
+  

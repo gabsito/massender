@@ -214,15 +214,15 @@ export class CrearfiltrosComponent {
     }
 
     // Actualizar la lista modificada en el backend
-    this.http.put(`https://tu-backend.com/actualizar-lista/${listaSelect?.nombre}`, listaSelect)
-      .subscribe(
-        response => {
-          console.log('Lista actualizada en el backend', response);
-        },
-        error => {
-          console.error('Error al actualizar la lista en el backend', error);
-        }
-      );
+    // this.http.put(`https://tu-backend.com/actualizar-lista/${listaSelect?.nombre}`, listaSelect)
+    //   .subscribe(
+    //     response => {
+    //       console.log('Lista actualizada en el backend', response);
+    //     },
+    //     error => {
+    //       console.error('Error al actualizar la lista en el backend', error);
+    //     }
+    //   );
 
   }
 

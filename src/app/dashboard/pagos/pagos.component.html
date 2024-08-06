@@ -10,12 +10,15 @@
               <mat-card-subtitle>Premium</mat-card-subtitle>
               <mat-card-subtitle>xx.x $</mat-card-subtitle>
               <mat-card-title>Próxima facturación</mat-card-title>
-              <mat-card-subtitle>3 de julio de 2024</mat-card-subtitle>
+              <mat-card-subtitle>3 de julio de 2024</mat-card-subtitle> 
             </mat-card-header>
-          </mat-card>
+            <button class="terminar">Terminar servicio</button>
+        </mat-card>
     </div>
-    <div class="pay-history">
-        <p>pays</p>
-
+    <h2>¿Deseas cambiar de plan?</h2>
+    <div class="planes">
+        <app-basic></app-basic>
+        <app-premium></app-premium>
+        <app-vip></app-vip>
     </div>
 </div>

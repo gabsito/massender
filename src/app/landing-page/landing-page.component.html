@@ -19,11 +19,11 @@
     <section class="hero">    
       <div class="hero-content">
         <div class="hero-text">
-          <h2>Envío masivo de mensajes por WhatsApp: rápido, fácil y efectivo</h2>
-          <p>¡Bienvenido a nuestra revolucionaria plataforma de envío masivo por WhatsApp! Simplificamos y potenciamos tus comunicaciones al permitirte enviar mensajes personalizados de manera eficiente y efectiva a múltiples destinatarios.</p>
+          <h2>Envío masivo de mensajes por WhatsApp, Email y SMS: rápido, fácil y efectivo</h2>
+          <p>¡Bienvenido a nuestra revolucionaria plataforma de envío masivo de mensajes! Simplificamos y potenciamos tus comunicaciones al permitirte enviar mensajes personalizados de manera eficiente y efectiva a múltiples destinatarios.</p>
           <div class="hero-buttons">
-            <button class="primary-btn">Adquiere un paquete</button>
-            <button class="secondary-btn">Aprender más</button>
+            <button class="primary-btn" (click)="scrollToPricing()">Adquiere un paquete</button>
+            <button class="secondary-btn" (click)="scrollToHowto()">Aprender más</button>
           </div>
         </div>
         <div class="hero-image">
@@ -32,7 +32,7 @@
       </div>
     </section>
 
-    <section class="how-it-works">
+    <section id="Howto" #Howto class="how-it-works">
         <div class="how-it-works-content">
           <div class="text-content">
             <h2>¿Cómo funciona?</h2>
@@ -40,22 +40,22 @@
             <div class="features">
               <div class="feature">
                 <img src="carga-de-documentos 1.png" alt="Datos de los destinatarios">
-                <h3>Datos de los destinatarios</h3>
+                <h3><strong>Datos de los destinatarios</strong></h3>
                 <p>El primer paso es recopilar los contactos a los que se enviarán los mensajes. Hazlo importando una lista de contactos desde un archivo CSV, o ingresando los números de teléfono manualmente.</p>
               </div>
               <div class="feature">
                 <img src="personalizacion 1.png" alt="Personalización del mensaje">
-                <h3>Personalización del mensaje</h3>
+                <h3><strong>Personalización del mensaje</strong></h3>
                 <p>Teniendo recopilados los contactos ya se puede personalizar el mensaje que deseas enviar. Puede incluir texto, imágenes, videos o enlaces.</p>
               </div>
               <div class="feature">
                 <img src="entrega-programada 1.png" alt="Programación del envío de los mensajes">
-                <h3>Programación del envío de los mensajes</h3>
+                <h3><strong>Programación del envío de los mensajes</strong></h3>
                 <p>Se puede programar el envío de los mensajes para que sean enviados en una fecha y hora específica. Esto es útil si deseas enviar mensajes a diferentes personas en diferentes momentos.</p>
               </div>
               <div class="feature">
                 <img src="enviar 1.png" alt="Envío de los mensajes">
-                <h3>Envío de los mensajes</h3>
+                <h3><strong>Envío de los mensajes</strong></h3>
                 <p>Una vez que personalizaste el mensaje, realiza el envío!</p>
               </div>
             </div>
@@ -65,9 +65,7 @@
           </div>
         </div>
       </section>
-  
-    
-  
+
     <section class="segmentation">
       <div class="section-content">
         <img src="Sorting thoughts-bro 1.png" alt="Segmentación de mensajes">
@@ -98,27 +96,12 @@
       </div>
     </section>
   
-    <section class="pricing">
+    <section id="pricing" #pricingSection class="pricing">
       <h2>Un precio para todos</h2>
       <div class="plans">
-        <div class="plan">
-          <h3>Plan Basic</h3>
-          <p>Con el Plan Basic tendrás hasta 5K mensajes, ideal para probar nuestra plataforma y explorar las posibilidades del envío masivo de mensajes por WhatsApp.</p>
-          <p class="price">$xx</p>
-          <button>Comprar</button>
-        </div>
-        <div class="plan">
-          <h3>Plan VIP</h3>
-          <p>El paquete completo para tus necesidades empresariales. Con el Plan VIP obtienes hasta 100K mensajes, perfecto para empresas que buscan una solución robusta y escalable para sus campañas de WhatsApp.</p>
-          <p class="price">$xx</p>
-          <button>Comprar</button>
-        </div>
-        <div class="plan">
-          <h3>Plan Premium</h3>
-          <p>El siguiente nivel para expandir tus comunicaciones. El Plan Premium te permite enviar más de 100K mensajes. Ideal para una gran audiencia y campañas extensas.</p>
-          <p class="price">$xx</p>
-          <button>Comprar</button>
-        </div>
+        <app-basic></app-basic>
+        <app-premium></app-premium>
+        <app-vip></app-vip>
       </div>
     </section>
   

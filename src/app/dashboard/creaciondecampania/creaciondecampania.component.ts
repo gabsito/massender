@@ -43,7 +43,7 @@ export class CreacionDeCampaniaComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.filtrosPrueba = this.mockBackendService.obtenerFiltros();
+    //this.filtrosPrueba = this.mockBackendService.obtenerFiltros();
     //this.loadFiltros();
     this.loadListas();
     this.loadListas2();
@@ -52,19 +52,20 @@ export class CreacionDeCampaniaComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.cdr.detectChanges();
   }
-/*
-  loadFiltros() {
-    this.http.get<{ id: number, name: string, value: string }[]>('https://jandryrt15.pythonanywhere.com/massender/listar-filtros')
-      .subscribe(
-        data => {
-          this.filtros = data;
-        },
-        error => {
-          console.error('Error loading filtros', error);
-        }
-      );
-  }
-*/
+
+
+  // loadFiltros() {
+  //   this.http.get<{ id: number, name: string, value: string }[]>('https://jandryrt15.pythonanywhere.com/massender/listar-filtros')
+  //     .subscribe(
+  //       data => {
+  //         this.filtros = data;
+  //       },
+  //       error => {
+  //         console.error('Error loading filtros', error);
+  //       }
+  //     );
+  // }
+
 
 
   loadListas() {
@@ -112,19 +113,19 @@ export class CreacionDeCampaniaComponent implements OnInit, AfterViewInit {
   }
 
   onSelect(event: any) {
-    const selectedLista = event.value;
-    console.log('Lista seleccionada:', selectedLista);
-    console.log('Filtros:', selectedLista.filtros);
-    console.log('Filtros:', this.mockBackendService.obtenerFiltros());
-    this.fillfiltros();
+    // const selectedLista = event.value;
+    // console.log('Lista seleccionada:', selectedLista);
+    // console.log('Filtros:', selectedLista.filtros);
+    // console.log('Filtros:', this.mockBackendService.obtenerFiltros());
+    // this.fillfiltros();
   }
 
   onFileSelected(event: any) {
-    const file: File = event.target.files[0];
-    if (file) {
-      console.log('Archivo seleccionado:', file);
-      // lógica para manejar el archivo seleccionado
-    }
+    // const file: File = event.target.files[0];
+    // if (file) {
+    //   console.log('Archivo seleccionado:', file);
+    //   // lógica para manejar el archivo seleccionado
+    // }
   }
 
   programarEnvio() {
