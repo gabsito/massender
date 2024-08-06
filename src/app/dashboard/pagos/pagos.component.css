@@ -25,24 +25,31 @@
     padding-left: 25px;
 }
 
-.mat-card {
+mat-card {
     margin: 15px;
+    padding-bottom: 15px;
 }
 
-.mat-card .main-title{
+main-title{
     font-size: 25px;
     font-weight: bold;
     width: 250px;
     height: 30px;
     text-align: center;
     border-radius: 10px;
-    background-color: rgb(56, 33, 189);
+    background-color: rgb(0, 0, 0);
     color: var(--white);
 }
 
-.mat-card-title{
-    color: rgb(56, 33, 189);
+mat-card-title{
+    font-size: 25px;
+    color: rgb(0, 0, 0);
 }
+
+mat-card-subtitle { 
+    font-size: 20px;
+}
+
 
 ::ng-deep .mat-card,
 .mat-card-header,
@@ -51,4 +58,31 @@
 .mat-card-subtitle {
 
     background-color: var(--white);
+}
+
+h2 {
+    text-align: center;
+}
+
+.planes{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 15px;
+    gap: 15px;
+
+}
+
+
+
+button {
+    background-color: rgb(214, 56, 28);
+    color: var(--white);
+    width: 200px;
+    border: none;
+    margin-left: 10px;
+    margin-top: 15px;
+    border-radius: 5px;
+    cursor: pointer;
 }

@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f2f2f2;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+}
+
+.form-container, .bank-info-container {
+  width: 45%;
+}
+
+.login-box, .bank-info-box {
+  padding: 40px;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.logo {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+  -webkit-filter: drop-shadow(1px 1px 0 black) 
+                  drop-shadow(-1px -1px 0 white);
+  filter: drop-shadow(1px 1px 0 black) 
+          drop-shadow(-1px -1px 0 white);
+}
+
+.textbox {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.textbox input {
+  width: 100%;
+  padding: 10px;
+  background: #f2f2f2;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  color: #333;
+}
+
+.btn {
+  width: 100%;
+  background: #4caf50;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #fff;
+  border-radius: 5px;
+  outline: none;
+}
+
+.btn:hover {
+  background: #45a049;
+}

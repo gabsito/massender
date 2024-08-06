@@ -10,7 +10,9 @@ import { CampaniasComponent } from './dashboard/campanias/campanias.component'; 
 import { CreacionDeCampaniaComponent } from './dashboard/creaciondecampania/creaciondecampania.component';
 import { FiltrosComponent } from './dashboard/filtros/filtros.component'; // Importa el componente de filtros
 import { ReportesComponent } from './dashboard/reportes/reportes.component'; // Importa el nuevo componente Reportes
-
+import { ResetpasswordComponent } from './dashboard/resetpassword/resetpassword.component';
+import { RegistroComponent } from './registro/registro.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
@@ -28,9 +30,12 @@ export const routes: Routes = [
       { path: 'campanias', component: CampaniasComponent },
       { path: 'campanias/creacion', component: CreacionDeCampaniaComponent},
       { path: 'reportes', component: ReportesComponent }, // nueva ruta para ReportesComponent
+      { path: 'reset-password', component: ResetpasswordComponent } //admin only
     ]
   },
   { path: 'login', component: LoginComponent }, //all users
+  { path: 'registro', component: RegistroComponent }, //all users
+  { path: 'landing-page', component: LandingPageComponent}
 ];
 
 //TODO: Agrupar componentes por rol

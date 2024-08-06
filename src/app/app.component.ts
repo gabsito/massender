@@ -18,7 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
     FormsModule,
     MatTableModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']

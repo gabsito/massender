@@ -1,0 +1,292 @@
+.landing-container {
+    font-family: Arial, sans-serif;
+  
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      background-color: #bdf0b8;
+  
+  
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+  
+        li a {
+          text-decoration: none;
+          color: #000;
+        }
+      }
+  
+      .logo img {
+        width: 340px;
+        height: auto;
+        -webkit-filter: drop-shadow(1px 1px 0 black) 
+                        drop-shadow(-1px -1px 0 white);
+        filter:drop-shadow(1px 1px 0 black) 
+               drop-shadow(-1px -1px 0 white);
+        height: auto;
+      }
+  
+      .auth-buttons {
+        button {
+          margin-left: 0.5rem;
+          padding: 0.5rem 1rem;
+          border: none;
+          cursor: pointer;
+        }
+  
+        button:first-child {
+          background-color: #28a745;
+          color: #fff;
+        }
+  
+        button:last-child {
+          background-color: #007bff;
+          color: #fff;
+        }
+      }
+    }
+  
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      position: relative;
+      background-color: #bdf0b8;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+      z-index: 0;
+      
+     
+        
+  
+      .hero-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1200px;
+        width: 100%;
+        
+      }
+  
+      .hero-text {
+        max-width: 50%;
+  
+        h2 {
+          font-size: 2rem;
+        }
+  
+        p {
+          font-size: 1.25rem;
+        }
+  
+        .hero-buttons {
+          margin-top: 1rem;
+  
+          button {
+            margin-right: 1rem;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            cursor: pointer;
+          }
+  
+          .primary-btn {
+            background-color: #007bff;
+            color: #fff;
+          }
+  
+          .secondary-btn {
+            background-color: #6c757d;
+            color: #fff;
+          }
+        }
+      }
+  
+      .hero-image {
+        max-width: 50%;
+  
+        img {
+          max-width: 80%;
+          height: auto;
+          margin-left: 70px;
+        }
+      }
+    }
+
+
+  
+    .how-it-works {
+        padding: 2rem 1rem;
+        text-align: center;
+      
+        .how-it-works-content {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-wrap: wrap;
+          max-width: 1200px;
+          margin: 0 auto;
+
+        }
+      
+        .text-content {
+          flex: 1 1 60%;
+          text-align: left;
+      
+          h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+          }
+      
+          p {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+          }
+      
+          .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 2rem;
+      
+            .feature {
+              flex: 1 1 calc(25% - 1rem);
+              text-align: center;
+      
+              img {
+                max-width: 80px;
+                height: auto;
+                margin-bottom: 1rem;
+              }
+      
+              h3 {
+                font-size: 1.25rem;
+                margin-bottom: 0.5rem;
+              }
+      
+              p {
+                font-size: 0.875rem;
+              }
+            }
+          }
+        }
+      
+        .image-content {
+          flex: 1 1 40%;
+          text-align: center;
+      
+          img {
+            max-width: 110%;
+            height: auto;
+          }
+        }
+      }
+  
+    .segmentation,
+    .multimedia-content,
+    .campaign-analysis {
+      padding: 4rem 1rem;
+      /*background-color: #ffffff;*/
+
+  
+      .section-content {
+        display: flex;
+        align-items: center;
+        gap: 10rem;
+        max-width: 1200px;
+        margin: 0 auto;
+  
+        img {
+          max-width: 400px;
+          height: auto;
+        }
+  
+        h2 {
+          font-size: 2em;
+          margin-bottom: 1rem;
+        }
+  
+        p {
+          font-size: 1.4rem;
+          line-height: 1.5;
+        }
+      }
+      
+    }
+
+    .segmentation, .campaign-analysis {
+      background-color: white;
+    }
+
+    .multimedia-content {
+      background-color: #dcf7da;
+    }
+
+    
+  
+    .pricing {
+      padding: 2rem 1rem;
+      text-align: center;
+      background-color: #bdf0b8;
+  
+      h2 {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+      }
+  
+      .plans {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+  
+  
+        .price {
+          font-size: 1.5rem;
+          font-weight: bold;
+          margin: 1rem 0;
+        }
+  
+        button {
+          margin-top: 1rem;
+          padding: 0.5rem 1rem;
+          border: none;
+          background-color: #007bff;
+          color: #fff;
+          cursor: pointer;
+        }
+      }
+    }
+
+    
+  
+    footer {
+      padding: 1rem;
+      background-color: #343a40;
+      color: #fff;
+      text-align: center;
+  
+      ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+  
+        li a {
+          text-decoration: none;
+          color: #fff;
+        }
+      }
+  
+      .social-links a {
+        color: #fff;
+        margin: 0 0.5rem;
+        font-size: 1.5rem;
+      }
+    }
+
+    
+  }
+  
