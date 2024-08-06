@@ -9,23 +9,6 @@
   </div>
 
   <nav class="flex column">
-      <a class="sidebar-button" routerLink="/dashboard/reportes" routerLinkActive="selected">Reportes</a>
-      <a class="sidebar-button" (click)="toggleCampaniasMenu()">Campañas</a>
-      <div class="menu-pop flex column" [class]="showCampaniasMenu ? '' : 'hidden'">
-          <a class="sub-button" (click)="navigateTo('whatsapp')">Whatsapp</a>
-          <a class="sub-button" (click)="navigateTo('email')">Email</a>
-          <a class="sub-button" (click)="navigateTo('sms')">SMS</a>
-        </div>
-        <a class="sidebar-button" (click)="toggleDestMenu()" [class]="showDestMenu ? 'selected' : ''" routerLink = '/destinatarios'>Destinatarios</a>
-        <div class="menu-pop flex column" [class]="showDestMenu ? '' : 'hidden'">
-            <a class="sub-button" routerLink = 'destinatarios/filtros'>Filtros</a>
-        </div>
-        <a class="sidebar-button" routerLink="/dashboard/empresas" routerLinkActive="selected">Empresa</a>
-        <a class="sidebar-button" routerLink="/dashboard/pagos" routerLinkActive="selected">Pagos</a>
-        <a class="sidebar-button" routerLink="/dashboard/configuracion" routerLinkActive="selected">Configuración</a>
-        <button class="sidebar-button" (click)="logout();">Cerrar Sesión</button>
-    </nav>
-    
     <!-- Para el menu por roles -->
     @for (route of routes; track route.description) {
         @if (route.children) {
@@ -40,5 +23,24 @@
             <a class="sidebar-button" routerLink="{{route.ruta}}" routerLinkActive="selected">{{route.descripcion}}</a>
         }    
     }
+    <button class="sidebar-button" (click)="logout();">Cerrar Sesión</button>
+</nav>
+
+
 
 </aside>
+
+<!-- <a class="sidebar-button" routerLink="/dashboard/reportes" routerLinkActive="selected">Reportes</a>
+<a class="sidebar-button" (click)="toggleCampaniasMenu()">Campañas</a>
+<div class="menu-pop flex column" [class]="showCampaniasMenu ? '' : 'hidden'">
+    <a class="sub-button" (click)="navigateTo('whatsapp')">Whatsapp</a>
+    <a class="sub-button" (click)="navigateTo('email')">Email</a>
+    <a class="sub-button" (click)="navigateTo('sms')">SMS</a>
+  </div>
+  <a class="sidebar-button" (click)="toggleDestMenu()" [class]="showDestMenu ? 'selected' : ''" routerLink = '/destinatarios'>Destinatarios</a>
+  <div class="menu-pop flex column" [class]="showDestMenu ? '' : 'hidden'">
+      <a class="sub-button" routerLink = 'destinatarios/filtros'>Filtros</a>
+  </div>
+  <a class="sidebar-button" routerLink="/dashboard/empresas" routerLinkActive="selected">Empresa</a>
+  <a class="sidebar-button" routerLink="/dashboard/pagos" routerLinkActive="selected">Pagos</a>
+  <a class="sidebar-button" routerLink="/dashboard/configuracion" routerLinkActive="selected">Configuración</a> -->

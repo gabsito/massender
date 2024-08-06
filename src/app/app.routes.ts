@@ -15,7 +15,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+  { path: '', component: LandingPageComponent, pathMatch: 'full'},
   { path: 'dashboard', redirectTo: 'dashboard/reportes', pathMatch: 'full'},
   { path: 'dashboard', canActivate: [authGuard] , component: DashComponent, children: [ //all users
       //componentes SuperAdmin
@@ -35,7 +35,6 @@ export const routes: Routes = [
   },
   { path: 'login', component: LoginComponent }, //all users
   { path: 'registro', component: RegistroComponent }, //all users
-  { path: 'landing-page', component: LandingPageComponent}
 ];
 
 //TODO: Agrupar componentes por rol
