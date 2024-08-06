@@ -45,7 +45,6 @@ export class LoginComponent {
         this.authService.saveToken(token.access_token, token.user_id, token.refresh_token);
         this.loading = false;
         this.authService.getUserAccess();
-        this.authService.getAccessRoutes();
         this.router.navigate(['/dashboard/reportes']);
       },
       (error) => {

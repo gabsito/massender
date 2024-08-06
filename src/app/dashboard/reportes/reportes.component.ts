@@ -49,9 +49,6 @@ export class ReportesComponent implements OnInit {
   constructor(private campaniasService: CampaniasService, private filtrosService: FiltrosService, private authService: AuthService) { }
 
   ngOnInit(): void {
-
-    this.authService.getAccessRoutes();
-
     // Obtener todas las campañas inicialmente
     this.campaniasService.getCampanias().subscribe((data: any[]) => {
       // console.log('Campañas recibidas:', data);

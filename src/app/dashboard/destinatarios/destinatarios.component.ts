@@ -48,7 +48,6 @@ export class DestinatariosComponent implements OnInit {
   ngOnInit(): void {
     this.loadLists();
     this.authService.getUserAccess();
-    this.authService.getAccessRoutes();
   }
 
   ngAfterViewInit() {

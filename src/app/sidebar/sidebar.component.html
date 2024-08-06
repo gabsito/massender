@@ -15,15 +15,38 @@
           <a class="sub-button" (click)="navigateTo('whatsapp')">Whatsapp</a>
           <a class="sub-button" (click)="navigateTo('email')">Email</a>
           <a class="sub-button" (click)="navigateTo('sms')">SMS</a>
-      </div>
-      <a class="sidebar-button" (click)="toggleDestMenu()" [class]="showDestMenu ? 'selected' : ''" routerLink = '/destinatarios'>Destinatarios</a>
+        </div>
+        <a class="sidebar-button" (click)="toggleDestMenu()" [class]="showDestMenu ? 'selected' : ''" routerLink = '/destinatarios'>Destinatarios</a>
         <div class="menu-pop flex column" [class]="showDestMenu ? '' : 'hidden'">
             <a class="sub-button" routerLink = 'destinatarios/filtros'>Filtros</a>
         </div>
+<<<<<<< HEAD
       <a class="sidebar-button" routerLink="/dashboard/empresas" routerLinkActive="selected">Empresa</a>
       <a class="sidebar-button" routerLink="/dashboard/pagos" routerLinkActive="selected">Pagos</a>
       <a class="sidebar-button" routerLink="/dashboard/reset-password" routerLinkActive="selected">Cambiar contraseña</a>
       <button class="sidebar-button" (click)="logout();">Cerrar Sesión</button>
   </nav>
 
+=======
+        <a class="sidebar-button" routerLink="/dashboard/empresas" routerLinkActive="selected">Empresa</a>
+        <a class="sidebar-button" routerLink="/dashboard/pagos" routerLinkActive="selected">Pagos</a>
+        <a class="sidebar-button" routerLink="/dashboard/configuracion" routerLinkActive="selected">Configuración</a>
+        <button class="sidebar-button" (click)="logout();">Cerrar Sesión</button>
+    </nav>
+    
+    <!-- Para el menu por roles -->
+    @for (route of routes; track route.description) {
+        @if (route.children) {
+            <a class="sidebar-button" (click)="toggleMenu(route.description)">{{route.descripcion}}</a>
+            <div class="menu-pop flex column">
+                @for (child of route.children; track child.descripcion) {
+                    <a class="sub-button" routerLink="{{child.ruta}}" routerLinkActive="selected">{{child.descripcion}}</a>
+                }
+            </div>
+            
+        } @else {
+            <a class="sidebar-button" routerLink="{{route.ruta}}" routerLinkActive="selected">{{route.descripcion}}</a>
+        }    
+    }
+>>>>>>> master
 </aside>
