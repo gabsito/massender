@@ -15,8 +15,7 @@ import { ReportesComponent } from './dashboard/reportes/reportes.component'; // 
 export const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   { path: 'dashboard', redirectTo: 'dashboard/reportes', pathMatch: 'full'},
-  {
-    path: 'dashboard', canActivate: [authGuard] , component: DashComponent, children: [ //all users
+  { path: 'dashboard', canActivate: [authGuard] , component: DashComponent, children: [ //all users
       //componentes SuperAdmin
       { path: 'empresas', canActivate: [SuperAdminGuard], component: EmpresasComponent }, //superadmin
       //componentes Admin
@@ -27,7 +26,7 @@ export const routes: Routes = [
       { path: 'destinatarios/filtros', component: FiltrosComponent}, //all users but superadmin
       { path: 'destinatarios/:id/importar', component: CargadestinatariosComponent}, //superadmin + admin
       { path: 'campanias', component: CampaniasComponent },
-      { path: 'creaciondecampania', component: CreacionDeCampaniaComponent},
+      { path: 'campanias/creacion', component: CreacionDeCampaniaComponent},
       { path: 'reportes', component: ReportesComponent }, // nueva ruta para ReportesComponent
     ]
   },
