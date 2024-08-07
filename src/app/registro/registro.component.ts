@@ -3,19 +3,41 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { HttpClient } from '@angular/common/http';
 import { UserService } from '../services/user.service';
 import * as CryptoJS from 'crypto-js';
+import { BasicComponent } from '../basic/basic.component';
+import { PremiumComponent } from '../premium/premium.component';
+import { VipComponent } from '../vip/vip.component';
 
 @Component({
   selector: 'app-registro',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, BasicComponent, PremiumComponent, VipComponent],
   templateUrl: './registro.component.html',
   styleUrl: './registro.component.css'
 })
 export class RegistroComponent {
   registerForm: FormGroup;
+  pagosForm: FormGroup;
   correosUsados: string[] = [];
   usernameUsados: string[] = [];
   usernameExists: boolean = false;
+
+  paqueteDescripcion: string = '';
+  paquetePrecio: string = '';
+
+  paquetes: { [key: string]: { descripcion: string; precio: string } } = {
+    "basic": {
+      descripcion: 'Capacidad para 10000 mensajes.',
+      precio: '$ 10'
+    },
+    "premium": {
+      descripcion: 'Capacidad para 100000 mensajes.',
+      precio: '$ 30'
+    },
+    "vip": {
+      descripcion: 'Capacidad para 50,000 mensajes.',
+      precio: '$ 20'
+    }
+  };
 
   constructor(private fb: FormBuilder, private http: HttpClient, private userService: UserService) {
     this.registerForm = this.fb.group({
@@ -25,6 +47,19 @@ export class RegistroComponent {
       telefono: ['', Validators.required],
       password: ['', Validators.required]
     });
+
+    this.pagosForm = this.fb.group({
+      tarjeta: ['', Validators.required],
+      fecha: ['', Validators.required],
+      cvv: ['', Validators.required]
+    });
+  }
+
+  updatePackageInfo(event: Event) {
+    const selectElement = event.target as HTMLSelectElement;
+    const paquete = selectElement.value;
+    this.paqueteDescripcion = this.paquetes[paquete].descripcion;
+    this.paquetePrecio = this.paquetes[paquete].precio;
   }
 
   ngOnInit(): void {}
@@ -72,4 +107,19 @@ export class RegistroComponent {
       );
     }
   }
+
+  onFocus() {
+    const input = document.getElementById('expiry-date') as HTMLInputElement;
+    if (input) {
+      input.placeholder = 'MM/AA';
+    }
+  }
+
+  onBlur() {
+    const input = document.getElementById('expiry-date') as HTMLInputElement;
+    if (input) {
+      input.placeholder = 'Fecha de vencimiento';
+    }
+  }
+  
 }
