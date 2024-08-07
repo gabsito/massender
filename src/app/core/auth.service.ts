@@ -116,7 +116,7 @@ export class AuthService {
     localStorage.removeItem('token');
     localStorage.removeItem('refresh_token');
     localStorage.removeItem('user_id');
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
   }
 
   changeAccessRoutes(routes: object[]) {

@@ -1,24 +1,42 @@
-[
-    {
-        "path": "/",
-        "component": "Home",
-        "children" :[
-            {
-                "path": "/",
-                "component": "Home"
-            },
-            {
-                "path": "/home",
-                "component": "Home"
-            }
-        ]
-    },
-    {
-        "path": "/about",
-        "component": "About"
-    },
-    {
-        "path": "/contact",
-        "component": "Contact"
-    }
-]
+{
+    "ruta": "dashboard",
+    "descripcion": "Inicio",
+    "children" :[
+        {
+            "ruta": "dashboard/reportes",
+            "descripcion": "Reportes"
+        },
+        {
+            "ruta": "dashboard/empresas",
+            "descripcion": "Empresas"
+        },
+        {
+            "ruta": "dashboard/pagos",
+            "descripcion": "Pagos"
+        },
+        {
+            "ruta": "dashboard/destinatarios",
+            "descripcion": "Destinatarios",
+            "children" :[
+                {
+                    "ruta": "dashboard/destinatarios/filtros",
+                    "descripcion": "Filtros"
+                },
+                {
+                    "ruta": "dashboard/destinatarios/:id/importar",
+                    "descripcion": "Cargar Destinatarios"
+                }
+            ]
+        },
+        {
+            "ruta": "dashboard/campanias",
+            "descripcion": "Campañas",
+            "children" :[
+                {
+                    "ruta": "dashboard/campanias/creacion",
+                    "descripcion": "Crear Campaña"
+                }
+            ]
+        }
+    ]
+}
