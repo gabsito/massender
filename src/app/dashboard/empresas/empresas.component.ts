@@ -15,9 +15,10 @@ import { Employee } from '../../classes/employee';
 })
 export class EmpresasComponent {
 
-
   employees: Employee[] = [new Employee('John Doe', 0), new Employee('Jane Smith', 1),new Employee('Jim Brown', 2)];
   idEmployee: number = 3;
+  username: string = '';
+  id: number = 0;
 
   constructor(public dialog: MatDialog) { }
 
@@ -37,13 +38,18 @@ export class EmpresasComponent {
 
     dialogRef.afterClosed().subscribe(result => {
 
-      if (this.esNumero(result.trim()) || result.trim() == '') {
+      const trimmedResult = result.trim();
+
+      if (this.esNumero(trimmedResult) || trimmedResult == '') {
         window.alert("Ingreso No Válido");
       } else {
+        const initials = trimmedResult.substring(0, 2).toLowerCase();
+        // Generar el nombre de usuario
+        const username = `${initials}${this.id}`;
+        this.id++;
         let employee: Employee = new Employee(result, this.idEmployee++);
         this.employees.push(employee);
-        console.log(employee);
-        console.log(this.employees.length);
+        console.log(username);
       }
     });
   }

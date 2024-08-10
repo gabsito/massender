@@ -3,7 +3,7 @@
     <div class="form-container">
       <div class="login-box">
         <img src="logo.png" alt="Massender Logo" class="logo">
-        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="registerForm">
           <h2>Datos Personales</h2>
           <div class="textbox">
             <input id="username" formControlName="username" placeholder="Empresa" required />
@@ -31,15 +31,12 @@
         <div class="bank-info-box">
           <h2>Información de pago</h2>
 
-          <form [formGroup]="pagosForm" (ngSubmit)="onSubmit()">
+          <form [formGroup]="pagosForm" >
 
             <div class="paquetes">
               <h1>Selecciona un paquete</h1>
               <select name="paquetes" id="paquetes" (change)="updatePackageInfo($event)">
-
                 <option value="empty" selected disabled>Seleccionar</option>
-
-
                 <option value="basic">
                   <div class="paquete-basic-title">Basic</div>
                 </option>
@@ -49,7 +46,7 @@
                 <option value="vip">
                   <div class="paquete-vip-title">VIP</div>
                 </option>
-              </select>
+              </select> 
               <div class="paquete-info">
                 <p>{{ paqueteDescripcion }}</p>
               </div>
@@ -62,7 +59,7 @@
               </div>
 
               <div class="textbox">
-                <input type="text" id="expiry-date" name="expiry-date" placeholder="Fecha de vencimiento"
+                <input type="text" id="expiry_date" name="expiry-date" placeholder="Fecha de vencimiento"
                   (focus)="onFocus()" (blur)="onBlur()" required>
               </div>
 
@@ -86,7 +83,7 @@
 
     </div>
 
-    <button type="submit" class="btn">Registrar</button>
+    <button type="submit" class="btn" (click) = "onRegister()" >Registrar</button>
 
 
   </div>
