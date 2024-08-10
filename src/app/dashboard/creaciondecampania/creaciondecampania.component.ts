@@ -32,7 +32,8 @@ export class CreacionDeCampaniaComponent implements OnInit, AfterViewInit {
       nombreCampania: ['', Validators.required],
       mensaje: ['', Validators.required],
       filtro: ['', Validators.required],
-      listaDestinatarios: ['', Validators.required]
+      listaDestinatarios: ['', Validators.required],
+      medio: ['', Validators.required]  // Nueva propiedad
     });
   }
 
@@ -83,7 +84,8 @@ export class CreacionDeCampaniaComponent implements OnInit, AfterViewInit {
         nombre: formData.nombreCampania,
         mensaje: formData.mensaje,
         filtro_id: formData.filtro,
-        lista_id: formData.listaDestinatarios
+        lista_id: formData.listaDestinatarios,
+        medio: formData.medio  // Incluir el medio en los datos enviados
       };
 
       this.http.post('https://jandryrt15.pythonanywhere.com/massender/guardar-campania', campaniaData)
