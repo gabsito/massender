@@ -3,41 +3,19 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { HttpClient } from '@angular/common/http';
 import { UserService } from '../services/user.service';
 import * as CryptoJS from 'crypto-js';
-import { BasicComponent } from '../basic/basic.component';
-import { PremiumComponent } from '../premium/premium.component';
-import { VipComponent } from '../vip/vip.component';
 
 @Component({
   selector: 'app-registro',
   standalone: true,
-  imports: [ReactiveFormsModule, BasicComponent, PremiumComponent, VipComponent],
+  imports: [ReactiveFormsModule],
   templateUrl: './registro.component.html',
   styleUrl: './registro.component.css'
 })
 export class RegistroComponent {
   registerForm: FormGroup;
-  pagosForm: FormGroup;
   correosUsados: string[] = [];
   usernameUsados: string[] = [];
   usernameExists: boolean = false;
-
-  paqueteDescripcion: string = '';
-  paquetePrecio: string = '';
-
-  paquetes: { [key: string]: { descripcion: string; precio: string } } = {
-    "basic": {
-      descripcion: 'Capacidad para 10000 mensajes.',
-      precio: '$ 10'
-    },
-    "premium": {
-      descripcion: 'Capacidad para 100000 mensajes.',
-      precio: '$ 30'
-    },
-    "vip": {
-      descripcion: 'Capacidad para 50,000 mensajes.',
-      precio: '$ 20'
-    }
-  };
 
   constructor(private fb: FormBuilder, private http: HttpClient, private userService: UserService) {
     this.registerForm = this.fb.group({
@@ -47,101 +25,51 @@ export class RegistroComponent {
       telefono: ['', Validators.required],
       password: ['', Validators.required]
     });
-
-    this.pagosForm = this.fb.group({
-      account_number: ['', Validators.required],
-      expiry_date: ['', Validators.required],
-      cvv: ['', Validators.required],
-      account_holder: ['', Validators.required]
-    });
-  }
-
-  updatePackageInfo(event: Event) {
-    const selectElement = event.target as HTMLSelectElement;
-    const paquete = selectElement.value;
-    this.paqueteDescripcion = this.paquetes[paquete].descripcion;
-    this.paquetePrecio = this.paquetes[paquete].precio;
   }
 
   ngOnInit(): void {}
 
-  onRegister() {
-    const user = this.registerForm.value;
-    const pagos = this.pagosForm.value;
+  onSubmit(): void {
+    if (this.registerForm.valid) {
+      const userData = this.registerForm.value;
 
-    // Encriptar la contraseña
-    const encryptedPassword = CryptoJS.AES.encrypt(user.password, 'tu-clave-secreta').toString();
+      this.userService.checkUsername(userData.username).subscribe(
+        (exists: boolean) => {
+          if (exists) {
+            this.usernameExists = true;
+          } else {
+            this.usernameExists = false;
 
-    // Obtener las fechas actuales y formatearlas
-    const currentDate = new Date();
-    const formattedDate = currentDate.getFullYear() + '-' + ('0' + (currentDate.getMonth() + 1)).slice(-2) + '-' + ('0' + currentDate.getDate()).slice(-2);
+            // Cifrar la contraseña antes de enviarla al servidor
+            const encryptedPassword = CryptoJS.AES.encrypt(userData.password, 'tu-clave-secreta').toString();
 
-    const oneMonthLater = new Date(currentDate);
-    oneMonthLater.setMonth(currentDate.getMonth() + 1);
-    const formattedFinDate = oneMonthLater.getFullYear() + '-' +
-                      ('0' + (oneMonthLater.getMonth() + 1)).slice(-2) + '-' +
-                      ('0' + oneMonthLater.getDate()).slice(-2);
+            const user = {
+              username: userData.username,
+              nombre_completo: userData.nombre_completo,
+              correo: userData.correo,
+              telefono: userData.telefono,
+              password: encryptedPassword
+            };
 
-    // Crear el objeto con los datos del cliente
-    const clientData = {
-      nombre: user.nombre_completo,
-      cliente_id: 3,
-      usuario_insercion: 0,
-      membresia_id: 1,
-      tabla_precios_id: 1,
-      medio_pago_id: 1,
-      fecha_insercion: currentDate.toISOString(),
-      fecha_ini_memb: formattedDate,
-      fecha_fin_memb: formattedFinDate,
-    };
+            console.log('Usuario a registrar', user);
 
-    // Hacer la primera solicitud para registrar el Cliente
-    this.http.post<any>('https://jandryrt15.pythonanywhere.com/massender/clientes', clientData)
-      .subscribe(clienteResponse => {
-        console.log('Respuesta del Cliente:', clienteResponse); // Verificar que cliente_id está en la respuesta
-        const cliente_id = clienteResponse.cliente_id;  // Obtener el cliente_id de la respuesta
-        if (!cliente_id) {
-          console.error('Error: cliente_id es nulo o indefinido');
+            // Llamar al servicio de backend para registrar el usuario con los datos del formulario
+            // this.http.post('https://jandryrt15.pythonanywhere.com/massender/usuarios', user)
+            //   .subscribe(
+            //     response => {
+            //       console.log('Usuario registrado con éxito', response);
+            //       this.registerForm.reset();  // Limpiar el formulario
+            //     },
+            //     (error: any) => {
+            //       console.error('Error al registrar el usuario', error);
+            //     }
+            //   );
+          }
+        },
+        (error: any) => {
+          console.error('Error al verificar el nombre de usuario', error);
         }
-
-        // Crear el objeto con los datos del usuario, incluyendo el cliente_id obtenido
-        const userData = {
-          username: user.username,
-          nombre_completo: user.nombre_completo,
-          correo: user.correo,
-          rol_id: 4,
-          telefono: user.telefono,
-          password: user.password,
-          usuario_insercion: 0,
-          fecha_insercion: currentDate.toISOString(),
-          cliente_id: cliente_id  // Asignar el cliente_id al usuario
-        };
-
-        // Hacer la segunda solicitud para registrar el Usuario
-        this.http.post('https://jandryrt15.pythonanywhere.com/massender/usuarios', userData)
-          .subscribe(usuarioResponse => {
-            console.log('Usuario registrado exitosamente', usuarioResponse);
-          }, error => {
-            console.error('Error al registrar el usuario', error);
-          });
-
-      }, error => {
-        console.error('Error al registrar el cliente', error);
-      });
-  }
-
-  onFocus() {
-    const input = document.getElementById('expiry-date') as HTMLInputElement;
-    if (input) {
-      input.placeholder = 'MM/AA';
+      );
     }
   }
-
-  onBlur() {
-    const input = document.getElementById('expiry-date') as HTMLInputElement;
-    if (input) {
-      input.placeholder = 'Fecha de vencimiento';
-    }
-  }
-  
 }

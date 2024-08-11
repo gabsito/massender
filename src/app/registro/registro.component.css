@@ -7,67 +7,32 @@ body {
 
 .container {
   display: flex;
-  margin: 25px;
   justify-content: center;
   align-items: center;
-  
+  height: 100vh;
 }
 
 .login-container {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  max-width: 500px; 
+  width: 70%;
 }
 
-.form-container {
-  display: flex;
-  flex-direction: row;
-  gap: 15px;
+.form-container, .bank-info-container {
+  width: 45%;
 }
-
 
 .login-box, .bank-info-box {
-  padding: 20px;
+  padding: 40px;
   background: #fff;
   text-align: center;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-}
-
-.bank-info-box {
-  width: 140%;
-}
-
-.bank-info-box form{
-  display: flex;
-  flex-direction: row;
-  gap: 15px;
-  margin-top: 35px;
-
-}
-
-.paquetes {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #fff;
-  text-align: center;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  gap: 15px;
-  width: 200px; 
-  max-width: 300px; 
-  padding: 20px; 
-  height: 200px;
-
 }
 
 .logo {
-  width: 360px;
+  width: 100%;
+  height: auto;
   margin-bottom: 15px;
   -webkit-filter: drop-shadow(1px 1px 0 black) 
                   drop-shadow(-1px -1px 0 white);
@@ -75,13 +40,13 @@ body {
           drop-shadow(-1px -1px 0 white);
 }
 
-.textbox, .date {
+.textbox {
   position: relative;
   margin-bottom: 30px;
 }
 
 .textbox input {
-  width: 80%;
+  width: 100%;
   padding: 10px;
   background: #f2f2f2;
   border: none;
@@ -91,7 +56,7 @@ body {
 }
 
 .btn {
-  width: 60%;
+  width: 100%;
   background: #4caf50;
   border: none;
   padding: 10px;

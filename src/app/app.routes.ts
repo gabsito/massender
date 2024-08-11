@@ -13,7 +13,6 @@ import { ReportesComponent } from './dashboard/reportes/reportes.component'; // 
 import { ResetpasswordComponent } from './dashboard/resetpassword/resetpassword.component';
 import { RegistroComponent } from './registro/registro.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { RecuperarclaveComponent } from './recuperarclave/recuperarclave.component';
 
 export const routes: Routes = [
   { path: '', component: LandingPageComponent, pathMatch: 'full'},
@@ -36,9 +35,6 @@ export const routes: Routes = [
   },
   { path: 'login', component: LoginComponent }, //all users
   { path: 'registro', component: RegistroComponent }, //all users
-  { path: 'landing-page', component: LandingPageComponent},
-  { path: 'recuperar', component: RecuperarclaveComponent}
-  
 ];
 
 //TODO: Agrupar componentes por rol

@@ -59,9 +59,5 @@ export class LoginComponent {
     );
   }
 
-  navigateToRecover() {
-    this.router.navigate(['/recuperar']);
-  }
-
 
 }
