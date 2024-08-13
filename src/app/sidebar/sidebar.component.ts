@@ -30,7 +30,7 @@ export class SidebarComponent {
   }
 
   ngOnInit() {
-    //this.nombreUsuario = this.userService.getUsername() || '';
+    this.nombreUsuario = this.userService.getUsername() || '';
   }
 
   toggleMenu(menu: string) {

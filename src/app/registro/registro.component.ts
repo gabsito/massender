@@ -132,10 +132,10 @@ export class RegistroComponent {
         };
 
         // Hacer la segunda solicitud para registrar el Usuario
-        this.http.post('https://jandryrt15.pythonanywhere.com/massender/usuarios', userData)
+        this.http.post<any>('https://jandryrt15.pythonanywhere.com/massender/usuarios', userData)
           .subscribe(usuarioResponse => {
             console.log('Usuario registrado exitosamente', usuarioResponse);
-            this.userService.setUsername(user.username);
+            this.userService.setUsername(usuarioResponse.username);
           }, error => {
             console.error('Error al registrar el usuario', error);
           });
