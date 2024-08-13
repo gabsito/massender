@@ -6,16 +6,17 @@
         <button mat-button (click)="openDialog()">Agregar Empleado</button>
     </div>
     <div class="main">
-        <div class="company">
-            @for (employee of employees; track employee.name) {
+        <div class="company" *ngFor="let empleado of empleados; trackBy: trackByFn">
+
             <mat-card appearance="outlined">
                 <mat-card-header>
                     <div class="header-content">
                         <div>
-                            <mat-card-title>{{ employee.name }}</mat-card-title>
-                            <mat-card-subtitle>Campañas asignadas:</mat-card-subtitle>
+                            <mat-card-title>Nombre: {{ empleado.nombre_completo }}</mat-card-title>
+                            <mat-card-title>Usuario: {{ empleado.username }}</mat-card-title>
+                            <mat-card-title>Correo: {{ empleado.correo }}</mat-card-title>
                         </div>
-                        <button mat-icon-button class="delete-button" (click)="deleteEmployee(employee.id)">
+                        <button mat-icon-button class="delete-button" (click)="deleteEmployee(empleado.usuario_id)">
                             <mat-icon>delete</mat-icon></button>
                     </div>
                 </mat-card-header>
@@ -24,9 +25,7 @@
                     <button>Campaña2</button>
                 </mat-card-actions>
             </mat-card>
-            } @empty {
-            <p>Ningún empleado ha sido registrado</p>
-            }
+                        
         </div>
     </div>
 </div>

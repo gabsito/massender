@@ -7,12 +7,36 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  private apiUrl = 'https://jandryrt15.pythonanywhere.com/massender';
+  private userId: number | null = null;
+  private username: string | null = null;
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
-  checkUsername(username: string): Observable<boolean> {
-    return this.http.get<boolean>(`${this.apiUrl}/usuarios/check-username?username=${username}`);
+  setUserId(id: number) {
+    this.userId = id;
+    localStorage.setItem('userId', id.toString());
   }
+
+  getUserId(): number | null {
+    if (!this.userId) {
+      const storedId = localStorage.getItem('userId');
+      this.userId = storedId ? parseInt(storedId, 10) : null;
+    }
+    return this.userId;
+  }
+
+  setUsername(username: string) {
+    this.username = username;
+    localStorage.setItem('username', username);
+  }
+
+  getUsername(): string | null {
+    if (!this.username) {
+      this.username = localStorage.getItem('username');
+    }
+    return this.username;
+  }
+
+
   
 }

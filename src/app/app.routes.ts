@@ -37,7 +37,8 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent }, //all users
   { path: 'registro', component: RegistroComponent }, //all users
   { path: 'landing-page', component: LandingPageComponent},
-  { path: 'recuperar', component: RecuperarclaveComponent}
+  { path: 'recuperar', component: RecuperarclaveComponent},
+  { path: 'reset', component: ResetpasswordComponent}
   
 ];
 

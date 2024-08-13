@@ -3,9 +3,12 @@
   <form  class="person-form">
     <label for="name">Nombre Completo</label>
     <input type="text" id="employeename"  placeholder="Nombre Completo"  name="name" matInput [(ngModel)]="employeeName" required>
+
+    <label for="email">Correo Electrónico</label>
+    <input type="email" id="employeeemail" placeholder="Correo Electrónico" name="email" matInput [(ngModel)]="employeeEmail" required>
   </form>
 </div>
 <div mat-dialog-actions>
   <button (click)="onNoClick()">Cerrar</button>
-  <button [mat-dialog-close]="employeeName" cdkFocusInitial>Añadir</button>
+  <button (click)="onSubmit()" cdkFocusInitial>Añadir</button>
 </div>

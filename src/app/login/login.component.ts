@@ -6,6 +6,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { Router } from '@angular/router';
 import { log } from 'console';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -46,6 +47,7 @@ export class LoginComponent {
         this.loading = false;
         this.authService.getUserAccess();
         this.router.navigate(['/dashboard/reportes']);
+
       },
       (error) => {
         this.loading = false;

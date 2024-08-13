@@ -14,7 +14,7 @@
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    /*width: 100%;*/
+
     max-width: 400px;
     box-sizing: border-box;
     display: flex;
@@ -95,22 +95,3 @@
     flex-direction: row;
     margin-top: 10px;
   } 
-
-  
-  /* Responsive adjustments 
-  @media (max-width: 600px) {
-    .form-container {
-      padding: 15px;
-    }
-  
-    .form-group input {
-      padding: 6px;
-      font-size: 14px;
-    }
-    .form-actions button {
-      font-size: 14px;
-      padding: 6px 15px;
-    }
-    
-  }
-  */

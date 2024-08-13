@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { UserService } from '../../services/user.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-resetpassword',
@@ -12,28 +14,45 @@ export class ResetpasswordComponent {
   
   passwordResetForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private userService: UserService, private http: HttpClient) {
     this.passwordResetForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required, Validators.nullValidator]],
       newPassword: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required]]
-    }, /*{ validator: this.passwordMatchValidator }*/);
+    },{ validator: this.passwordMatchValidator });
   }
-/*
+
   passwordMatchValidator(form: FormGroup) {
-    return form.get('newPassword').value === form.get('confirmPassword').value 
-      ? null : { 'mismatch': true };
+    return form.get('newPassword')?.value === form.get('confirmPassword')?.value? null : { 'mismatch': true };
   }
-*/
-  onSubmit() {/*
+
+  onSubmit() {
     if (this.passwordResetForm.valid) {
-      const email = this.passwordResetForm.get('email').value;
-      const newPassword = this.passwordResetForm.get('newPassword').value;
-      // Aquí debes agregar la lógica para verificar el correo y actualizar la contraseña
-      // Esto probablemente implicará una llamada a un servicio que maneje la autenticación
-      console.log('Correo:', email);
+      const username = this.passwordResetForm.get('username')?.value;
+      const newPassword = this.passwordResetForm.get('newPassword')?.value;
+      const usuario_id = this.userService.getUserId();
+
+      const updateData = {
+        password: newPassword
+      };
+  
+      // Realizar la petición PUT para actualizar la contraseña
+      this.http.put(`https://jandryrt15.pythonanywhere.com/massender/usuarios/${usuario_id}`, updateData)
+        .subscribe({
+          next: (response) => {
+            console.log('Contraseña actualizada exitosamente', response);
+          },
+          error: (error) => {
+            console.error('Error al actualizar la contraseña', error);
+          },
+          complete: () => {
+            console.log('Operación de actualización completa');
+          }
+        });
+
+      console.log('usuario:', username);
       console.log('Nueva Contraseña:', newPassword);
-    }*/
+    }
   }
 
 }

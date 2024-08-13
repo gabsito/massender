@@ -6,6 +6,7 @@ import * as CryptoJS from 'crypto-js';
 import { BasicComponent } from '../basic/basic.component';
 import { PremiumComponent } from '../premium/premium.component';
 import { VipComponent } from '../vip/vip.component';
+import { CienteService } from '../services/ciente.service';
 
 @Component({
   selector: 'app-registro',
@@ -20,6 +21,7 @@ export class RegistroComponent {
   correosUsados: string[] = [];
   usernameUsados: string[] = [];
   usernameExists: boolean = false;
+  rol: string = '';
 
   paqueteDescripcion: string = '';
   paquetePrecio: string = '';
@@ -39,7 +41,7 @@ export class RegistroComponent {
     }
   };
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private userService: UserService) {
+  constructor(private fb: FormBuilder, private http: HttpClient, private clienteService: CienteService, private userService: UserService) {
     this.registerForm = this.fb.group({
       username: ['', Validators.required],
       nombre_completo: ['', Validators.required],
@@ -85,7 +87,7 @@ export class RegistroComponent {
     // Crear el objeto con los datos del cliente
     const clientData = {
       nombre: user.nombre_completo,
-      cliente_id: 3,
+      //cliente_id: 3,
       usuario_insercion: 0,
       membresia_id: 1,
       tabla_precios_id: 1,
@@ -95,11 +97,23 @@ export class RegistroComponent {
       fecha_fin_memb: formattedFinDate,
     };
 
+    this.http.get<any>('https://jandryrt15.pythonanywhere.com/massender/roles/bydesc/administrador')
+    .subscribe(rolResponse => {
+      console.log('Respuesta del Rol:', rolResponse); // Verificar que cliente_id está en la respuesta
+      this.rol = rolResponse.rol_id;  // Obtener el cliente_id de la respuesta
+      if (!this.rol) {
+        console.error('Error: rol_id es nulo o indefinido');
+      }
+    });
+    
+
     // Hacer la primera solicitud para registrar el Cliente
     this.http.post<any>('https://jandryrt15.pythonanywhere.com/massender/clientes', clientData)
       .subscribe(clienteResponse => {
         console.log('Respuesta del Cliente:', clienteResponse); // Verificar que cliente_id está en la respuesta
         const cliente_id = clienteResponse.cliente_id;  // Obtener el cliente_id de la respuesta
+        this.clienteService.setClienteId(cliente_id);
+        
         if (!cliente_id) {
           console.error('Error: cliente_id es nulo o indefinido');
         }
@@ -109,7 +123,7 @@ export class RegistroComponent {
           username: user.username,
           nombre_completo: user.nombre_completo,
           correo: user.correo,
-          rol_id: 4,
+          rol_id: this.rol,
           telefono: user.telefono,
           password: user.password,
           usuario_insercion: 0,
@@ -121,6 +135,7 @@ export class RegistroComponent {
         this.http.post('https://jandryrt15.pythonanywhere.com/massender/usuarios', userData)
           .subscribe(usuarioResponse => {
             console.log('Usuario registrado exitosamente', usuarioResponse);
+            this.userService.setUsername(user.username);
           }, error => {
             console.error('Error al registrar el usuario', error);
           });

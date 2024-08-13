@@ -27,6 +27,7 @@ import { FormControl, FormsModule} from '@angular/forms';
 export class PopupComponent {
 
   employeeName: string = '';
+  employeeEmail: string = '';
 
   constructor(public dialogRef: MatDialogRef<PopupComponent>) {}
 
@@ -37,8 +38,16 @@ export class PopupComponent {
   formControl = new FormControl('');
 
   onSubmit() {
-    const employeeName = this.formControl.value;
-    this.dialogRef.close(employeeName);
+    if (this.employeeName.trim() && this.employeeEmail.trim()) {
+      const employeeData = {
+        name: this.employeeName, // Este será el nombre ingresado
+        email: this.employeeEmail // Este será el correo ingresado
+      };
+      // Si ambos campos están llenos, se cierra el diálogo y se envían los datos
+      this.dialogRef.close(employeeData);
+    } else {
+      console.log('Formulario incompleto: asegúrate de que ambos campos estén llenos.');
+    }
   }
 
 

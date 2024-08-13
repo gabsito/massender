@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../core/auth.service';
+import { UserService } from '../services/user.service';
+
 
 @Component({
   selector: 'app-sidebar',
@@ -16,14 +18,19 @@ export class SidebarComponent {
   showMenu: boolean = false;
   showCampaniasMenu: boolean = false; // Asegúrate de inicializar showCampaniasMenu
   showDestMenu: boolean = false;
+  nombreUsuario: string = '';
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService, private router: Router, private userService: UserService) {
     this.authService.currentRoutes.subscribe(
       (data) => {
         console.log('rutas sidebar:', data);
         this.routes = data as any[];
       }
     );
+  }
+
+  ngOnInit() {
+    //this.nombreUsuario = this.userService.getUsername() || '';
   }
 
   toggleMenu(menu: string) {
