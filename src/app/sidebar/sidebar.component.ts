@@ -18,6 +18,7 @@ export class SidebarComponent {
   showDestMenu: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {
+    this.authService.getUserAccess();
     this.authService.currentRoutes.subscribe(
       (data) => {
         console.log('rutas sidebar:', data);
