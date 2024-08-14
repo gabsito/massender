@@ -44,6 +44,7 @@ export class RegistroComponent {
   constructor(private fb: FormBuilder, private http: HttpClient, private clienteService: CienteService, private userService: UserService) {
     this.registerForm = this.fb.group({
       username: ['', Validators.required],
+      empresa: ['', Validators.required],
       nombre_completo: ['', Validators.required],
       correo: ['', [Validators.required, Validators.email]],
       telefono: ['', Validators.required],
@@ -86,7 +87,7 @@ export class RegistroComponent {
 
     // Crear el objeto con los datos del cliente
     const clientData = {
-      nombre: user.nombre_completo,
+      nombre: user.empresa,
       //cliente_id: 3,
       usuario_insercion: 0,
       membresia_id: 1,
