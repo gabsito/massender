@@ -21,6 +21,7 @@ export class SidebarComponent {
   nombreUsuario: string = '';
 
   constructor(private authService: AuthService, private router: Router, private userService: UserService) {
+    this.authService.getUserAccess();
     this.authService.currentRoutes.subscribe(
       (data) => {
         console.log('rutas sidebar:', data);

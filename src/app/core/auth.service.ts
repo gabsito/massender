@@ -37,7 +37,7 @@ export class AuthService {
     return this.http.post(this.refreshURL, {
       headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
                                 .set('Access-Control-Allow-Origin', '*')
-                                .set('Authorization', 'Bearer ' + localStorage.getItem('refresh_token'))
+                                .set('Authorization', 'Bearer ' + sessionStorage.getItem('refresh_token'))
     });
   }
   
@@ -82,10 +82,10 @@ export class AuthService {
   }
 
   async getUserRol(): Promise<Object>{
-    let response = this.http.get(this.userURL + localStorage.getItem('user_id'), {
+    let response = this.http.get(this.userURL + sessionStorage.getItem('user_id'), {
       headers: new HttpHeaders().set('Accept', 'application/json')
                                 .set('Access-Control-Allow-Origin', '*')
-                                .set('Authorization', 'Bearer ' + localStorage.getItem('token'))
+                                .set('Authorization', 'Bearer ' + sessionStorage.getItem('token'))
     });
 
     return await lastValueFrom(response);
@@ -95,7 +95,7 @@ export class AuthService {
     let response = this.http.get(this.accessURL + rol_id, {
       headers: new HttpHeaders().set('Accept', 'application/json')
                                 .set('Access-Control-Allow-Origin', '*')
-                                .set('Authorization', 'Bearer ' + localStorage.getItem('token'))
+                                .set('Authorization', 'Bearer ' + sessionStorage.getItem('token'))
     });
 
     return await lastValueFrom(response);
@@ -103,23 +103,24 @@ export class AuthService {
 
 
   saveToken(token: string, user_id: number, refresh_token: string){
-    localStorage.setItem('token', token);
-    localStorage.setItem('user_id', user_id.toString());
-    localStorage.setItem('refresh_token', refresh_token);
+    sessionStorage.setItem('token', token);
+    sessionStorage.setItem('user_id', user_id.toString());
+    sessionStorage.setItem('refresh_token', refresh_token);
   }
 
   isAuthenticated(): boolean {
-    return localStorage.getItem('token') != null;
+    return sessionStorage.getItem('token') != null;
   }
 
   logout(){
-    localStorage.removeItem('token');
-    localStorage.removeItem('refresh_token');
-    localStorage.removeItem('user_id');
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('refresh_token');
+    sessionStorage.removeItem('user_id');
     this.router.navigate(['/']);
   }
 
   changeAccessRoutes(routes: object[]) {
+    console.log('rutas cambiadas:', routes);
     this.routes.next(this.processRoutes(routes));
   }
 

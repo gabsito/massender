@@ -5,13 +5,13 @@
   </div>
 
   <div class="usuario">
-      <h2>  nombreUsuario </h2>
+      <h2>  {{ nombreUsuario }} </h2>
   </div>
 
   <nav class="flex column">
     <!-- Para el menu por roles -->
-    @for (route of routes; track route.description) {
-        @if (route.children) {
+    @for (route of routes; track route.descripcion) {
+        @if (route.children.length > 0) {
             <a class="sidebar-button" (click)="toggleMenu(route.description)">{{route.descripcion}}</a>
             <div class="menu-pop flex column">
                 @for (child of route.children; track child.descripcion) {

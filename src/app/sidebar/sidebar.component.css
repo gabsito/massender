@@ -22,6 +22,10 @@
 }
 
 .usuario{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border-style: solid;
     border-color: wheat;
     margin-bottom: 10px;

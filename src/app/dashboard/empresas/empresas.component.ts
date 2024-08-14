@@ -27,7 +27,7 @@ export class EmpresasComponent {
   constructor(public dialog: MatDialog, private http: HttpClient, private clienteService: CienteService, private userService: UserService) { }
 
   ngOnInit(): void {
-    this.getEmpleados();
+    //this.getEmpleados();
   }
 
   //verificaciones
@@ -43,58 +43,71 @@ export class EmpresasComponent {
   // cuadro de dialogo
   openDialog(): void {
     const dialogRef = this.dialog.open(PopupComponent, {
-      width: '450px', // puedes pasar datos al diálogo aquí si es necesario
+      width: '450px',
     });
+    
     dialogRef.afterClosed().subscribe(result => {
-
       const trimmedResult = result;
-
+  
       if (this.esNumero(trimmedResult.name) || trimmedResult == '') {
         window.alert("Ingreso No Válido");
       } else {
         const firstName = trimmedResult.name.split(' ')[0].toLowerCase();
         const email = trimmedResult.email;
-        
+  
         const username = `${firstName}${this.id++}`;
-
+  
+        // Primero, recuperamos el rol_id
         this.http.get<any>('https://jandryrt15.pythonanywhere.com/massender/roles/bydesc/usuario')
-    .subscribe(rolResponse => {
-      console.log('Respuesta del Rol:', rolResponse); // Verificar que cliente_id está en la respuesta
-      this.rol = rolResponse.rol_id;  // Obtener el cliente_id de la respuesta
-      if (!this.rol) {
-        console.error('Error: rol_id es nulo o indefinido');
-      }
-    });
-
-        // Datos para la solicitud POST
-        const userData = {
-          username: username,
-          nombre_completo: trimmedResult.name,
-          correo: email,
-          rol_id: this.rol, // Rol de empleado
-          telefono: '0123456789',
-          password: username,
-          usuario_insercion: 0,
-          fecha_insercion: new Date().toISOString(),
-          cliente_id: this.clienteService.getClienteId()
-        };
-
-        this.http.post('https://jandryrt15.pythonanywhere.com/massender/usuarios', userData)
           .subscribe({
-            next: (response) => {
-              console.log('Empleado registrado exitosamente', response);
+            next: rolResponse => {
+              console.log('Respuesta del Rol:', rolResponse);
+              this.rol = rolResponse.rol_id;  // Asignamos el rol_id
+  
+              if (!this.rol) {
+                console.error('Error: rol_id es nulo o indefinido');
+                return;
+              }
+  
+              // Ahora, construimos los datos del usuario
+              const userData = {
+                username: username,
+                nombre_completo: trimmedResult.name,
+                correo: email,
+                rol_id: this.rol, // Asignamos el rol_id recuperado
+                telefono: '0123456789',
+                password: username,
+                usuario_insercion: 0,
+                fecha_insercion: new Date().toISOString(),
+                cliente_id: this.clienteService.getClienteId()
+              };
+  
+              // Hacemos la solicitud POST para registrar el usuario
+              this.http.post<any>('https://jandryrt15.pythonanywhere.com/massender/usuarios', userData)
+                .subscribe({
+                  next: response => {
+                    console.log('Empleado registrado exitosamente', response);
+                    // Agregamos el nuevo empleado a la lista de empleados
+                  this.empleados.push({
+                    usuario_id: response.usuario_id,
+                    nombre_completo: trimmedResult.name,
+                    username: username,
+                    correo: email
+                  });
+                  },
+                  error: error => {
+                    console.error('Error al registrar el empleado', error);
+                  },
+                  complete: () => {
+                    console.log('Operación completa');
+                    window.alert("Empleado Registrado");
+                  }
+                });
             },
-            error: (error) => {
-              console.error('Error al registrar el empleado', error);
-            },
-            complete: () => {
-              console.log('Operación completa');
+            error: error => {
+              console.error('Error al obtener el rol', error);
             }
           });
-
-        console.log(userData);
-
-        window.alert("Empleado Registrado");
       }
     });
   }
@@ -142,7 +155,7 @@ export class EmpresasComponent {
   }
   // fin operaciones api
   trackByFn(index: number, item: any): string {
-    return item.usuario_id; 
+    return item.usuario_id;
   }
 
 }

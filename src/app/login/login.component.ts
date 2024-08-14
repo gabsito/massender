@@ -5,6 +5,7 @@ import { Token } from '../interfaces/token';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { Router } from '@angular/router';
 import { log } from 'console';
+import { UserService } from '../services/user.service';
 
 
 @Component({
@@ -27,7 +28,7 @@ export class LoginComponent {
     password: new FormControl<string>('')
   });
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) { }
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router, private userService: UserService) { }
   
   
   onSubmit() {
@@ -47,6 +48,7 @@ export class LoginComponent {
         this.loading = false;
         this.authService.getUserAccess();
         this.router.navigate(['/dashboard/reportes']);
+        this.userService.setUsername(username);
 
       },
       (error) => {
@@ -59,10 +61,6 @@ export class LoginComponent {
         }
       }
     );
-  }
-
-  navigateToRecover() {
-    this.router.navigate(['/recuperar']);
   }
 
 
