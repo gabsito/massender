@@ -14,6 +14,8 @@ import { ResetpasswordComponent } from './dashboard/resetpassword/resetpassword.
 import { RegistroComponent } from './registro/registro.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { RecuperarclaveComponent } from './recuperarclave/recuperarclave.component';
+import { RolesComponent } from './dashboard/administracion/roles/roles.component';
+import { AccesosComponent } from './dashboard/administracion/accesos/accesos.component';
 
 export const routes: Routes = [
   { path: '', component: LandingPageComponent, pathMatch: 'full'},
@@ -26,6 +28,8 @@ export const routes: Routes = [
       //componentes Empleados
 
       { path: 'destinatarios', component: DestinatariosComponent }, //all users
+      { path: 'administracion/roles', component: RolesComponent }, //superadmin
+      { path: 'administracion/accesos', component: AccesosComponent }, //superadmin
       { path: 'destinatarios/filtros', component: FiltrosComponent}, //all users but superadmin
       { path: 'destinatarios/:id/importar', component: CargadestinatariosComponent}, //superadmin + admin
       { path: 'campanias', component: CampaniasComponent },

@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="title-button">
+      <h1>Administración de roles</h1>
+      <button mat-raised-button color="primary" (click)="agregarRol()">Agregar Nuevo Rol</button>
+    </div>
+    <div class="main">
+      <div class="filters">
+        <form (ngSubmit)="aplicarFiltro()">
+          <mat-form-field appearance="fill">
+            <mat-label>Descripción</mat-label>
+            <input matInput [(ngModel)]="descripcion" name="descripcion" placeholder="Descripcion">
+          </mat-form-field>
+          <button mat-raised-button color="primary" type="submit">Aplicar Filtro</button>
+          <button mat-raised-button color="warn" type="button" (click)="quitarFiltros()">Quitar Filtros</button>
+        </form>
+      </div>
+  
+      <div class="header-content">
+        <span>Registros: {{ dataSource.data.length }}</span>
+      </div>
+      <div class="table-container">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <ng-container matColumnDef="descripcion">
+            <th mat-header-cell *matHeaderCellDef> Descripción </th>
+            <td mat-cell *matCellDef="let rol"> {{ rol.descripcion }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="fecha_creacion">
+            <th mat-header-cell *matHeaderCellDef> Fecha de Creación </th>
+            <td mat-cell *matCellDef="let rol"> {{ rol.fecha_insercion | date:'short' }} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="fecha_modificacion">
+            <th mat-header-cell *matHeaderCellDef> Fecha de Modificación </th>
+            <td mat-cell *matCellDef="let rol"> {{ rol.fecha_modificacion | date:'short' }} </td>
+          </ng-container>
+          
+          <ng-container matColumnDef="editar">
+            <th mat-header-cell *matHeaderCellDef> Editar </th>
+            <td mat-cell *matCellDef="let rol">
+              <button mat-icon-button color="accent" (click)="abrirModalEdicion(rol)">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+  
+          <!-- Eliminar Column -->
+          <ng-container matColumnDef="eliminar">
+            <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+            <td mat-cell *matCellDef="let rol">
+              <button mat-icon-button color="warn" (click)="eliminarRol(rol.rol_id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+          
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+      <div class="pagination-controls">
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+      </div>
+    </div>
+  </div>
+  

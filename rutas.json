@@ -3,6 +3,14 @@
     "descripcion": "Inicio",
     "children" :[
         {
+            "ruta": "dashboard/administracion/roles",
+            "descripcion": "Roles"
+        },
+        {
+            "ruta": "dashboard/administracion/accesos",
+            "descripcion": "Accesos"
+        },
+        {
             "ruta": "dashboard/reportes",
             "descripcion": "Reportes"
         },
