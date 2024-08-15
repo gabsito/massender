@@ -151,7 +151,7 @@ export class EmpresasComponent {
         }
       });
 
-
+      
   }
   // fin operaciones api
   trackByFn(index: number, item: any): string {

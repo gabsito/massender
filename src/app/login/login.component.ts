@@ -4,7 +4,7 @@ import { AuthService } from '../core/auth.service';
 import { Token } from '../interfaces/token';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { Router } from '@angular/router';
-import { log } from 'console';
+//import { log } from 'console';
 import { UserService } from '../services/user.service';
 
 

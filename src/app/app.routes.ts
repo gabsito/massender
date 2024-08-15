@@ -14,6 +14,8 @@ import { ResetpasswordComponent } from './dashboard/resetpassword/resetpassword.
 import { RegistroComponent } from './registro/registro.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { RecuperarclaveComponent } from './recuperarclave/recuperarclave.component';
+import { ClientesComponent } from './dashboard/clientes/clientes.component';
+import { RegistrospaComponent } from './dashboard/registrospa/registrospa.component';
 
 export const routes: Routes = [
   { path: '', component: LandingPageComponent, pathMatch: 'full'},
@@ -31,14 +33,17 @@ export const routes: Routes = [
       { path: 'campanias', component: CampaniasComponent },
       { path: 'campanias/creacion', component: CreacionDeCampaniaComponent},
       { path: 'reportes', component: ReportesComponent }, // nueva ruta para ReportesComponent
-      { path: 'reset-password', component: ResetpasswordComponent } //admin only
+      { path: 'reset-password', component: ResetpasswordComponent }, //admin only
+      { path: 'clientes', component: ClientesComponent}, //SUPER ADMIN
+      { path: 'registrospa', component: RegistrospaComponent}
     ]
   },
   { path: 'login', component: LoginComponent }, //all users
   { path: 'registro', component: RegistroComponent }, //all users
   { path: 'landing-page', component: LandingPageComponent},
   { path: 'recuperar', component: RecuperarclaveComponent},
-  { path: 'reset', component: ResetpasswordComponent}//all users
+  { path: 'reset', component: ResetpasswordComponent},//all users
+  //{ path: 'clientes', component: ClientesComponent} //SUPER ADMIN
   
 ];
 

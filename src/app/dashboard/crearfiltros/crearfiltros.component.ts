@@ -163,55 +163,55 @@ export class CrearfiltrosComponent {
   }
 
   onSubmit() {
-    const formData = this.createFilterForm.value;
-    const nombreFiltro = formData.nombre;
-    const listaDestinatariosNombre = formData.listaDestinatarios;
-    const listaSelect = this.getListaSelect(listaDestinatariosNombre);
-    let filtro: Filtros | null = null;  // Definir el objeto Filtro sin inicializar
+    // const formData = this.createFilterForm.value;
+    // const nombreFiltro = formData.nombre;
+    // const listaDestinatariosNombre = formData.listaDestinatarios;
+    // const listaSelect = this.getListaSelect(listaDestinatariosNombre);
+    // let filtro: Filtros | null = null;  // Definir el objeto Filtro sin inicializar
 
 
-    if (listaSelect) {
+    // if (listaSelect) {
 
-      // Asegurar que la propiedad 'filtros' esté inicializada
-      if (!listaSelect.filtros) {
-        listaSelect.filtros = [];
-      }
-      // Crear una copia mutable del objeto listaSelect
-      const listaSelectMutable = { ...listaSelect, destinatarios: [] as Record<string, any>[] };
+    //   // Asegurar que la propiedad 'filtros' esté inicializada
+    //   if (!listaSelect.filtros) {
+    //     listaSelect.filtros = [];
+    //   }
+    //   // Crear una copia mutable del objeto listaSelect
+    //   const listaSelectMutable = { ...listaSelect, destinatarios: [] as Record<string, any>[] };
 
-      // Reemplazar el contenido de la lista con la lista filtrada
-      if (this.listaFiltrada.length > 0) {
-        listaSelectMutable.destinatarios = [...this.listaFiltrada];
-      }
+    //   // Reemplazar el contenido de la lista con la lista filtrada
+    //   if (this.listaFiltrada.length > 0) {
+    //     listaSelectMutable.destinatarios = [...this.listaFiltrada];
+    //   }
 
-      // Crear el objeto Filtro con la lista modificada
-      filtro = new Filtros(nombreFiltro, listaSelectMutable);
-
-
-      //this.addFilter(listaSelect, filtro);
-
-      this.cdr.detectChanges();
-      // Guardar el filtro en el servicio de backend
-      this.mockBackendService.guardarFiltro(filtro);
-
-      console.log("listaDest sin filtro ", listaSelect);
-
-      console.log("listaDest con filtro de nombre carlos", filtro);
-
-      // Enviar el objeto Filtro al componente principal
-      this.dialogRef.close(filtro); // Pasar el objeto Filtro al cerrar el diálogo
+    //   // Crear el objeto Filtro con la lista modificada
+    //   filtro = new Filtros(nombreFiltro, listaSelectMutable);
 
 
-    } else {
-      console.error('Selected list not found');
+    //   //this.addFilter(listaSelect, filtro);
 
-    }
+    //   this.cdr.detectChanges();
+    //   // Guardar el filtro en el servicio de backend
+    //   this.mockBackendService.guardarFiltro(filtro);
 
-    if (filtro && listaSelect) {
-      listaSelect.filtros.push(filtro);
-      console.log('lista after', listaSelect);
-      console.log('Filtro agregado:', listaSelect.filtros);
-    }
+    //   console.log("listaDest sin filtro ", listaSelect);
+
+    //   console.log("listaDest con filtro de nombre carlos", filtro);
+
+    //   // Enviar el objeto Filtro al componente principal
+    //   this.dialogRef.close(filtro); // Pasar el objeto Filtro al cerrar el diálogo
+
+
+    // } else {
+    //   console.error('Selected list not found');
+
+    // }
+
+    // if (filtro && listaSelect) {
+    //   listaSelect.filtros.push(filtro);
+    //   console.log('lista after', listaSelect);
+    //   console.log('Filtro agregado:', listaSelect.filtros);
+    // }
 
     // Actualizar la lista modificada en el backend
     // this.http.put(`https://tu-backend.com/actualizar-lista/${listaSelect?.nombre}`, listaSelect)

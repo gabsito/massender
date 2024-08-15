@@ -1,0 +1,108 @@
+<div class="container">
+    <div class="login-container">
+        <div class="form-container">
+            <div class="login-membresia">
+                <div class="login-box">
+                    <img src="logo.png" alt="Massender Logo" class="logo">
+                    <form [formGroup]="registerForm">
+                        <h2>Datos Personales</h2>
+
+                        <div class="textbox">
+                            <input id="empresa" formControlName="empresa" placeholder="Empresa" required />
+                        </div>
+
+                        <div class="textbox">
+                            <input id="username" formControlName="username" placeholder="Nombre de usuario" required />
+                        </div>
+
+                        <div class="textbox">
+                            <input id="nombre_completo" formControlName="nombre_completo" placeholder="Nombre Completo"
+                                required />
+                        </div>
+
+                        <div class="textbox">
+                            <input id="correo" type="email" formControlName="correo" placeholder="Correo Electrónico"
+                                required />
+                        </div>
+
+                        <div class="textbox">
+                            <input id="telefono" formControlName="telefono" placeholder="Teléfono" required />
+                        </div>
+
+                        <div class="textbox">
+                            <input id="password" type="password" formControlName="password" placeholder="Contraseña"
+                                required />
+                        </div>
+                    </form>
+                </div>
+
+                <div class="creacion-membresia">
+                    <form [formGroup]="membresiaForm">
+                        <h2>Creación de Membresía</h2>
+
+                        <div class="textbox">
+                            <input id="membresia" formControlName="membresia" placeholder="Nombre de la Membresía"
+                                required />
+                        </div>
+
+                        <div class="textbox">
+                            <input id="descripcionmembresia" formControlName="descripcionmembresia"
+                                placeholder="Descripción de la membresía" required />
+                        </div>
+
+                        <div class="number">
+                            <input type="number" id="dias" formControlName="dias" placeholder="Días de la Membresía"
+                                required />
+                        </div>
+
+                        <div class="number">
+                            <input type="number" id="precio" formControlName="precio"
+                                placeholder="Precio de la Membresía" required />
+                        </div>
+
+                        <div class="textbox">
+                            <input id="descripcionprecio" formControlName="descripcionprecio"
+                                placeholder="Descripción del precio" required />
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+            <div class="bank-info-container">
+                <div class="bank-info-box">
+                    <h2>Información de pago</h2>
+
+                    <form [formGroup]="pagosForm">
+
+                        <div class="inputs">
+
+                            <div class="textbox">
+                                <input id="account_number" placeholder="Número de Tarjeta" required />
+                            </div>
+
+                            <div class="textbox">
+                                <input type="text" id="expiry_date" name="expiry-date"
+                                    placeholder="Fecha de vencimiento" (focus)="onFocus()" (blur)="onBlur()" required>
+                            </div>
+
+                            <div class="textbox">
+                                <input id="cvv" placeholder="CVV" required />
+                            </div>
+
+                            <div class="textbox">
+                                <input id="account_holder" placeholder="Titular de la Tarjeta" required />
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <button type="submit" class="btn" (click)="onRegister()">Registrar</button>
+</div>

@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f2f2f2;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin: 25px;
+    justify-content: center;
+    align-items: center;
+    max-height: 100%;
+    
+  }
+  
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    max-width: 500px; 
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  
+  .login-box, .bank-info-box, .creacion-membresia {
+    padding: 20px;
+    background: #fff;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+
+  .login-membresia{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .creacion-membresia{
+    height: 500px;
+    width: 400px;
+  }
+
+  .creacion-membresia form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  
+  .bank-info-box {
+    width: 360px;
+  }
+  
+  .bank-info-box form{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin-top: 35px;
+  }
+  
+  .logo {
+    width: 360px;
+    margin-bottom: 15px;
+    -webkit-filter: drop-shadow(1px 1px 0 black) 
+                    drop-shadow(-1px -1px 0 white);
+    filter: drop-shadow(1px 1px 0 black) 
+            drop-shadow(-1px -1px 0 white);
+  }
+  
+  .textbox, .date {
+    position: relative;
+    margin-bottom: 30px;
+  }
+  
+  .textbox input {
+    width: 90%;
+    padding: 10px;
+    background: #f2f2f2;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    color: #333;
+  }
+
+  .number input{
+    width: 90%;
+    padding: 10px;
+    background: #f2f2f2;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .btn {
+    margin-top: 10px;
+    width: 60%;
+    background: #4caf50;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  .btn:hover {
+    background: #45a049;
+  }
+

@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="title">
+        <h1 *ngIf="!mostrandoRegistro">Clientes</h1>
+        <h1 *ngIf="mostrandoRegistro">Registrar Cliente</h1>
+    </div>
+    <div class="btn">
+        <button mat-button (click)="toggleRegistrospa()">
+            {{ mostrandoRegistro ? 'Volver a Clientes' : 'Agregar Cliente' }}
+        </button>
+    </div>
+    <div class="main">
+        <div class="clientes" *ngIf="!mostrandoRegistro">
+
+            <mat-card appearance="outlined">
+                <mat-card-header>
+                    <div class="header-content">
+                        <div>
+                            <mat-card-title>Empresa:</mat-card-title>
+                            <mat-card-title>Nombre: </mat-card-title>
+                            <mat-card-title>Usuario: </mat-card-title>
+                            <mat-card-title>Correo: </mat-card-title>
+                            <mat-card-title>Telefono: </mat-card-title>
+                            <mat-card-title>Fecha de Registro: </mat-card-title>
+                            <mat-card-title>Membresía: </mat-card-title>
+                            <mat-card-title>Precio de membresía: </mat-card-title>
+                        </div>
+                        <button mat-icon-button class="delete-button" >
+                            <mat-icon>delete</mat-icon></button>
+                    </div>
+                </mat-card-header>
+                <mat-card-actions>
+                    <button>button</button>
+                    
+                </mat-card-actions>
+            </mat-card> 
+        </div>
+
+        <app-registrospa *ngIf="mostrandoRegistro" (clienteRegistrado)="onClienteRegistrado()"></app-registrospa>
+
+    </div>
+</div>

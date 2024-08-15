@@ -7,27 +7,27 @@
           <h2>Datos Personales</h2>
           
           <div class="textbox">
-            <input id="empresa" formControlName="empresa" placeholder="Empresa" required />
+            <input id="empresa" formControlName="empresa" placeholder="Empresa" />
           </div>
 
           <div class="textbox">
-            <input id="username" formControlName="username" placeholder="Nombre de usuario" required />
+            <input id="username" formControlName="username" placeholder="Nombre de usuario" maxlength="10"/>
           </div>
 
           <div class="textbox">
-            <input id="nombre_completo" formControlName="nombre_completo" placeholder="Nombre Completo" required />
+            <input id="nombre_completo" formControlName="nombre_completo" placeholder="Nombre Completo" maxlength="50"/>
           </div>
 
           <div class="textbox">
-            <input id="correo" type="email" formControlName="correo" placeholder="Correo Electrónico" required />
+            <input id="correo" type="email" formControlName="correo" placeholder="Correo Electrónico"  maxlength="30" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|edu\.ec)$"/>
           </div>
 
           <div class="textbox">
-            <input id="telefono" formControlName="telefono" placeholder="Teléfono" required />
+            <input id="telefono" formControlName="telefono" placeholder="Teléfono"  maxlength="10" minlength="10"/> 
           </div>
 
           <div class="textbox">
-            <input id="password" type="password" formControlName="password" placeholder="Contraseña" required />
+            <input id="password" type="password" formControlName="password" placeholder="Contraseña"  />
           </div>
         </form>
       </div>

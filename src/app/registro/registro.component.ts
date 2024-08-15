@@ -46,8 +46,8 @@ export class RegistroComponent {
       username: ['', Validators.required],
       empresa: ['', Validators.required],
       nombre_completo: ['', Validators.required],
-      correo: ['', [Validators.required, Validators.email]],
-      telefono: ['', Validators.required],
+      correo: ['', [Validators.required, ]],
+      telefono: ['', Validators.required,],
       password: ['', Validators.required]
     });
 
