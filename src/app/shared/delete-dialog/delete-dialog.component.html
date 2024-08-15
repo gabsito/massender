@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Confirmar Eliminación</h2>
+<mat-dialog-content>
+  <p>¿Está seguro de que desea eliminar?</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close="no">No</button>
+  <button mat-raised-button color="warn" [mat-dialog-close]="'yes'">Sí</button>
+</mat-dialog-actions>

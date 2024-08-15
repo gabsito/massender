@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>Editar Acceso</h2>
+<mat-dialog-content>
+  <form #editForm="ngForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Descripción</mat-label>
+      <input matInput [(ngModel)]="data.acceso.descripcion" name="descripcion">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Ruta</mat-label>
+        <input matInput [(ngModel)]="data.acceso.ruta" name="ruta">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Acceso Padre</mat-label>
+      <mat-select [(ngModel)]="data.acceso.parent_id" name="accesos">
+        <mat-option [value]="null">Ninguno</mat-option>
+        <mat-option *ngFor="let acceso of accesosDisponibles" [value]="acceso.acceso_id">{{ acceso.descripcion }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button color="primary" [mat-dialog-close]="data.acceso">Guardar</button>
+  <button mat-raised-button mat-dialog-close>Cancelar</button>
+</mat-dialog-actions>

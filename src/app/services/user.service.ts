@@ -19,7 +19,7 @@ export class UserService {
 
   getUserId(): number | null {
     if (!this.userId) {
-      const storedId = localStorage.getItem('userId');
+      const storedId = sessionStorage.getItem('user_id');
       this.userId = storedId ? parseInt(storedId, 10) : null;
     }
     return this.userId;
