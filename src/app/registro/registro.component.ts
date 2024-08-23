@@ -140,7 +140,7 @@ export class RegistroComponent {
           }, error => {
             console.error('Error al registrar el usuario', error);
           });
-
+          window.alert('Usuario registrado exitosamente');
       }, error => {
         console.error('Error al registrar el cliente', error);
       });
