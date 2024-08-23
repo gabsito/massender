@@ -21,6 +21,9 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    - name: Install Angular CLI
+      run: npm install -g @angular/cli  
+
     - name: Run specific tests
       run: |
         ng test --include="**/creaciondecampania.component.spec.ts" --watch=false --no-progress --browsers=ChromeHeadless
