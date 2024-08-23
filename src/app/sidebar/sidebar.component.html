@@ -12,11 +12,13 @@
     <!-- Para el menu por roles -->
     @for (route of routes; track route.descripcion) {
         @if (route.children.length > 0) {
-            <a class="sidebar-button" (click)="toggleMenu(route.description)">{{route.descripcion}}</a>
-            <div class="menu-pop flex column">
-                @for (child of route.children; track child.descripcion) {
-                    <a class="sub-button" routerLink="{{child.ruta}}" routerLinkActive="selected">{{child.descripcion}}</a>
-                }
+            <div class="flex column" (mouseenter)="showSubmenu(route.descripcion)" (mouseleave)="hideAll()">
+                <a class="sidebar-button" routerLink="{{route.ruta}}">{{route.descripcion}}</a>
+                <div class="menu-pop flex column hidden" [class]="{'show': isOpen===route.descripcion}">
+                    @for (child of route.children; track child.descripcion) {
+                        <a class="sub-button" routerLink="{{child.ruta}}" routerLinkActive="selected">{{child.descripcion}}</a>
+                    }
+                </div>
             </div>
             
         } @else {

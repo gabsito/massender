@@ -19,6 +19,7 @@ export class SidebarComponent {
   showCampaniasMenu: boolean = false; // Asegúrate de inicializar showCampaniasMenu
   showDestMenu: boolean = false;
   nombreUsuario: string = '';
+  isOpen: any;
 
   constructor(private authService: AuthService, private router: Router, private userService: UserService) {
     this.authService.getUserAccess();
@@ -46,6 +47,15 @@ export class SidebarComponent {
         this.showCampaniasMenu = false; // Cerrar otros menús si es necesario
       }
     }
+  }
+
+  showSubmenu(menu: any) {
+    this.isOpen = menu;
+    console.log('isOpen:', this.isOpen);
+  }
+
+  hideAll() {
+    this.isOpen = null;
   }
 
   toggleCampaniasMenu() {

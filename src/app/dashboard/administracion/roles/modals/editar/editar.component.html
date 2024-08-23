@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>Editar Rol</h2>
+<mat-dialog-content>
+  <form #editForm="ngForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Descripción</mat-label>
+      <input matInput [(ngModel)]="data.rol.descripcion" name="descripcion">
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill">
+      <mat-label>Accesos</mat-label>
+      <mat-select [(ngModel)]="data.rol.accesos" name="accesos" multiple [compareWith]="compararAccesos">
+        <mat-option *ngFor="let acceso of accesosDisponibles" [value]="acceso" (onSelectionChange)="onAccesoChange(acceso, $event)">{{ acceso.descripcion }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button color="primary" [mat-dialog-close]="data">Guardar</button>
+  <button mat-raised-button mat-dialog-close>Cancelar</button>
+</mat-dialog-actions>
