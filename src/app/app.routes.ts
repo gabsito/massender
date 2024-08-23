@@ -14,13 +14,10 @@ import { ResetpasswordComponent } from './dashboard/resetpassword/resetpassword.
 import { RegistroComponent } from './registro/registro.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { RecuperarclaveComponent } from './recuperarclave/recuperarclave.component';
-<<<<<<< HEAD
 import { ClientesComponent } from './dashboard/clientes/clientes.component';
 import { RegistrospaComponent } from './dashboard/registrospa/registrospa.component';
-=======
 import { RolesComponent } from './dashboard/administracion/roles/roles.component';
 import { AccesosComponent } from './dashboard/administracion/accesos/accesos.component';
->>>>>>> master
 
 export const routes: Routes = [
   { path: '', component: LandingPageComponent, pathMatch: 'full'},
