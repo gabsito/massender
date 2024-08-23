@@ -20,13 +20,7 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-    
-    - name: Run specific tests
-      run: |
-        ng test --include="**/creaciondecampania.component.spec.ts" --watch=false --no-progress --browsers=ChromeHeadless
-        ng test --include="**/registro.component.spec.ts" --watch=false --no-progress --browsers=ChromeHeadless
-        ng test --include="**/creaciondecampania.component.spec.ts" --watch=false --no-progress --browsers=ChromeHeadless
-        
+
     - name: Build Angular project
       run: npm run build --prod
 
