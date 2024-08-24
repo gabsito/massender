@@ -3,7 +3,8 @@ name: Run Angular Tests
 on:
   push:
     branches:
-      - dev-alexis  
+      - dev-alexis
+      - master  
 
 jobs:
   test:
